@@ -1,7 +1,7 @@
 <%@ page import="com.example.parhausprj.Offnungzeitenservlet" %>
 <%@ page import="java.io.PrintWriter" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="und">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,8 +53,9 @@
 <section>
   <div style="text-align:center;">
     <h2>Opening Hours:</h2>
+    <ul>
     <li>"Mo-Fr 9-18, Sa-Su 10-16"</li>
-
+    </ul>
     <p> new Opning Hours : ${openingHours}</p>
      <% %>
   </div>
