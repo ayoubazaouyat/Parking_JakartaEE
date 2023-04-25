@@ -1,5 +1,3 @@
-package com.example.parhausprj;
-
 import com.example.parhausprj.Ticket;
 import com.example.parhausprj.TicketResponse;
 

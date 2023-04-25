@@ -1,5 +1,3 @@
-package com.example.parhausprj;
-
 import com.example.parhausprj.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
