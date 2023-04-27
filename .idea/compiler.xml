@@ -6,11 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Team_12_sose23" />
+        <module name="Parhausprj" />
+        <module name="Team_42_sose23" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="inf_se1_ss23_Team_12_sose23" target="17" />
+      <module name="Parhausprj" target="1.8" />
+      <module name="Team_12_sose23" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
