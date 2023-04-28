@@ -35,7 +35,7 @@ public class TicketResponse extends HttpServlet{
 
         doGet(request, response);
         PrintWriter out = response.getWriter();
-        out.println("<button onclick=\"window.location.href='http://localhost:8080/Parhausprj_war_exploded/'\">Back to Home</button>");
+        out.println("<button onclick=\"window.location.href='index.jsp'\">Back to Home</button>");
     }
 
     public void destroy() {

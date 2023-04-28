@@ -60,7 +60,7 @@ public class Verlust extends HttpServlet {
 
             out.println("Go get a ticket first");
         }
-        out.println("<button onclick=\"window.location.href='http://localhost:8080/Parhausprj_war_exploded/'\">Back to Home</button>");
+        out.println("<button onclick=\"window.location.href='index.jsp'\">Back to Home</button>");
         // Validieren Sie das Ticket und berechnen Sie den Preis
 
 

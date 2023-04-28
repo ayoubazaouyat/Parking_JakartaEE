@@ -73,7 +73,7 @@ public class HelloServlet extends HttpServlet {
         out.println("<p>Eintrittzeit: " + ticket.eintrittszeit + "</p>");
         out.println("<p>Austrittzeit: " + ticket.austrittszeit + "</p>");
         out.println("<p>Amount Charged: $" + price + "</p>");
-        out.println("<button onclick=\"window.location.href='http://localhost:8080/Parhausprj_war_exploded/'\">Back to Home</button>");
+        out.println("<button onclick=\"window.location.href='index.jsp'\">Back to Home</button>");
         out.println("</body></html>");
     }
 

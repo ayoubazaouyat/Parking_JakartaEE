@@ -32,7 +32,7 @@ public class PriceServlet extends HttpServlet  {
         PrintWriter out = response.getWriter();
         out.println("<html><body>");
         out.println("<br><h1 style=\"color:black;\">Der neue Ticketspreis ist :" + " " + ticketPrice + " " +"Euro"+ "</h1>");
-        out.println("<button onclick=\"window.location.href='http://localhost:8080/Parhausprj_war_exploded/'\">Back to Home</button>");
+        out.println("<button onclick=\"window.location.href='index.jsp'\">Back to Home</button>");
         out.println("</body></html>");
 
 
