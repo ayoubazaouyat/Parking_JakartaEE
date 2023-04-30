@@ -45,36 +45,46 @@ public class HelloServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws  IOException {
         response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
 
         String ticketNumber = request.getParameter("ticketNumber");
         String creditCardNumber = request.getParameter("creditCardNumber");
 
-        Ticket ticket = null;
-        if (TicketResponse.tickets.size() >= Integer.parseInt(ticketNumber)) {
-            ticket = TicketResponse.tickets.get(Integer.parseInt(ticketNumber) - 1);
-        }
+        Ticket ticket = TicketResponse.tickets.get(Integer.parseInt(ticketNumber) - 1);
+
+
 
         if (ticket == null) {
-            PrintWriter out = response.getWriter();
             out.println("<html><body>");
             out.println("<h1>Error</h1>");
             out.println("<p>There is no ticket with number " + ticketNumber + "</p>");
-            out.println("<button onclick=\"window.location.href='http://localhost:8080/Parhausprj_war_exploded/'\">Back to Home</button>");
+            out.println("<button onclick=\"window.location.href='index.jsp'\">Back to Home</button>");
             out.println("</body></html>");
             return;
         }
+        try {
+            if (request.getParameter("autonummer").equals(ticket.getAutoNummer())) {
+                double price = ticket.bezahlen();
 
-        double price = ticket.bezahlen();
 
-        PrintWriter out = response.getWriter();
-        out.println("<html><body>");
-        out.println("<h1>Payment Successful</h1>");
-        out.println("<p>Ticket Number: " + ticketNumber + "</p>");
-        out.println("<p>Eintrittzeit: " + ticket.eintrittszeit + "</p>");
-        out.println("<p>Austrittzeit: " + ticket.austrittszeit + "</p>");
-        out.println("<p>Amount Charged: $" + price + "</p>");
-        out.println("<button onclick=\"window.location.href='index.jsp'\">Back to Home</button>");
-        out.println("</body></html>");
+                out.println("<html><body>");
+                out.println("<h1>Payment Successful</h1>");
+                out.println("<p>Ticket Number: " + ticketNumber + "</p>");
+                out.println("<p>Eintrittzeit: " + ticket.eintrittszeit + "</p>");
+                out.println("<p>Austrittzeit: " + ticket.austrittszeit + "</p>");
+                out.println("<p>Amount Charged: $" + price + "</p>");
+                out.println("<button onclick=\"window.location.href='index.jsp'\">Back to Home</button>");
+                out.println("</body></html>");
+            } else {
+                out.println(request.getParameter("autonummer"));
+                out.println(ticket.getAutoNummer());
+                out.println("Registration number is incorrect!");
+            }
+        }
+        catch (IllegalStateException e) {
+            out.println("<p> You already paid your Ticket</p>");
+        }
+
     }
 
 

@@ -15,6 +15,7 @@ public class Ticket {
     public Date austrittszeit;
     boolean verloren;
     double verlustGeb= 50.0;
+    boolean bezahlt = false ;
 
 
     public int getTicketNummer() {
@@ -39,9 +40,14 @@ public class Ticket {
 
     public double bezahlen() {
         double dauer = this.ticketValidieren();
+        if (bezahlt) {
+            throw new IllegalStateException("You already paid your ticket!");
+        }
         if(verloren) {
+            bezahlt = true;
             return (this.ticketPrice*dauer)+ verlustGeb;
         } else {
+            bezahlt = true;
             return this.ticketPrice*dauer;
         }
     }
