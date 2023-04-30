@@ -76,8 +76,8 @@ public class HelloServlet extends HttpServlet {
                 out.println("<button onclick=\"window.location.href='index.jsp'\">Back to Home</button>");
                 out.println("</body></html>");
             } else {
-                out.println(request.getParameter("autonummer"));
-                out.println(ticket.getAutoNummer());
+
+
                 out.println("Registration number is incorrect!");
             }
         }
