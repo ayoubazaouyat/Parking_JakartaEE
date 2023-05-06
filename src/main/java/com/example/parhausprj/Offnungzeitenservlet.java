@@ -31,8 +31,9 @@ public class Offnungzeitenservlet extends HttpServlet {
         openingHours= request.getParameter("openingHours");
 
         request.setAttribute("openingHours", openingHours);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
-        dispatcher.forward(request, response);
+        //RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
+        //dispatcher.forward(request, response);
+        response.sendRedirect("index.jsp");
 
 
 

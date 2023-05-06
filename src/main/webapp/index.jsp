@@ -62,7 +62,7 @@
 </head>
 <body>
 <header>
-  <img src="../../../images/logo.jpeg " alt="header image">
+  <img src="" alt="header image">
 
 </header>
 <script>
