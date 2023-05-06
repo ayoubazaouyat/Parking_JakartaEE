@@ -1,7 +1,7 @@
-<%@ page import="com.example.parhausprj.Offnungzeitenservlet" %>
+%@ page import="com.example.parhausprj.Offnungzeitenservlet" %>
 <%@ page import="java.io.PrintWriter" %>
 <!DOCTYPE html>
-<html lang="und">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,18 +9,28 @@
   <style>
     body {
       font-family: Arial, sans-serif;
+      background-color:black;
       margin: 0;
       padding: 0;
     }
-    header {
-      background-color:#FFCA33;
-      color: black;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 180px;
-    }
+    header img {
+      display: block; /* make the image a block element */
+      margin: 0 auto; /* center the image horizontally */
+      max-height: 250px; /* set the maximum height of the image */
+      animation: fade-in 3.5s ease-out;
+      width: auto; /* set the width of the image to auto */
 
+    }
+    @keyframes fade-in {
+      0% {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
     .btn-container {
       display: flex;
       justify-content: center;
@@ -43,21 +53,42 @@
       background-color: #fff;
       color: #333;
     }
+    section{
+      color: white;
+
+    }
 
   </style>
 </head>
 <body>
 <header>
-  <h1>Welcome To Parkhauss 404</h1>
+  <img src="https://cdn.discordapp.com/attachments/828389750741532674/1104010948345339976/image.png " alt="header image">
+
 </header>
+<script>
+  function updateClock() {
+    var now = new Date(); // aktuelle Zeit abrufen
+    var day = now.getDate(); // Tag abrufen
+    var month = now.getMonth() + 1; // Monat abrufen (Januar = 0, Februar = 1, ...)
+    var year = now.getFullYear(); // Jahr abrufen
+    var hours = now.getHours(); // Stunden abrufen
+    var minutes = now.getMinutes(); // Minuten abrufen
+    var seconds = now.getSeconds(); // Sekunden abrufen
+    var timeString = day + '.' + month + '.' + year + ' ' + hours + ':' + minutes + ':' + seconds; // Zeitformat erstellen
+    document.getElementById('clock').innerHTML = timeString; // Zeit in das HTML-Element schreiben
+  }
+  setInterval(updateClock, 1000); // Die Uhrzeit alle Sekunde aktualisieren
+</script>
 <section>
+
   <div style="text-align:center;">
+    <h1>Welcome by Parkhauss 404</h1>
+    <h1 id="clock"></h1>
     <h2>Opening Hours:</h2>
-    <ul>
     <li>"Mo-Fr 9-18, Sa-Su 10-16"</li>
-    </ul>
+
     <p> new Opning Hours : ${openingHours}</p>
-     <% %>
+    <% %>
   </div>
 </section>
 <div class="btn-container">
@@ -66,6 +97,6 @@
   <a href="verlust-servlet"><button class="lost-btn">Lost your Ticket?</button></a>
   <a href="offzeit.jsp"><button class="lost-btn">for owner!</button></a>
 </div>
+
 </body>
 </html>
-
