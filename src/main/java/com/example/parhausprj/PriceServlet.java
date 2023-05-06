@@ -1,4 +1,5 @@
 package com.example.parhausprj;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,7 +13,7 @@ import javax.servlet.annotation.*;
 
 @WebServlet(name = "priceServlet", value = "/price-servlet")
 public class PriceServlet extends HttpServlet  {
-    public static double ticketPrice = 0.99;
+    public static double ticketPrice = 2.99 ;
 
     @Override
     public void init()  {
@@ -20,25 +21,24 @@ public class PriceServlet extends HttpServlet  {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
         response.setContentType("text/html");
+
         String ticketPriceParam = request.getParameter("ticketPrice");
         if (ticketPriceParam != null) {
             ticketPrice = Double.parseDouble(ticketPriceParam);
         }
-        // else {
-        //     response.getWriter().println("Bitte geben Sie einen Ticketpreis an.");
-        // }
-
-        PrintWriter out = response.getWriter();
-        out.println("<html><body>");
-        out.println("<br><h1 style=\"color:black;\">Der neue Ticketspreis ist :" + " " + ticketPrice + " " +"Euro"+ "</h1>");
-        out.println("<button onclick=\"window.location.href='index.jsp'\">Back to Home</button>");
-        out.println("</body></html>");
-
 
     }
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        doGet(request,response);
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException ,ServletException{
+
+         ticketPrice = Double.parseDouble(request.getParameter("ticketPrice"));
+
+        request.setAttribute("ticketPrice", ticketPrice);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
+        dispatcher.forward(request, response);
+
+        //doGet(request,response);
 
     }
 

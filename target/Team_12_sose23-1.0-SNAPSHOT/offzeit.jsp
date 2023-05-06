@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 <!DOCTYPE html>
-<html lang="und">
+<html>
 <head>
     <title>Öffnungszeiten</title>
     <style>
@@ -45,7 +45,6 @@
 </head>
 <body>
 <h1>Die Öffnungszeiten unseres Parkhauses aktualisieren:</h1>
-<p>${openingHours}</p>
 <form method="post" action="zeit-servlet">
     <label>Neue Öffnungszeiten:</label>
     <input type="text" name="openingHours">
@@ -63,3 +62,4 @@
 </div>
 </body>
 </html>
+

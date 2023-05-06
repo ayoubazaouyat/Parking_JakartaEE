@@ -7,13 +7,9 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color:#FFEBB3;
             margin: 0;
             padding: 0;
-        }
-
-        h1 {
-            margin-top: 40px;
-            margin-bottom: 20px;
         }
         form {
             margin-bottom: 40px;
@@ -35,31 +31,50 @@
         button[type="submit"] {
             background-color: #333;
             color: #fff;
-            padding: 10px;
+            padding: 5px;
             border: none;
             border-radius: 3px;
             cursor: pointer;
         }
+        * {
+            box-sizing: border-box;
+        }
+
+        .row {
+            display: flex;
+        }
+
+        .column {
+            flex: 50%;
+            padding: 10px;
+            height: 740px;
+
+        }
+
 
     </style>
 </head>
 <body>
-<h1>Die Öffnungszeiten unseres Parkhauses aktualisieren:</h1>
-<form method="post" action="zeit-servlet">
-    <label>Neue Öffnungszeiten:</label>
-    <input type="text" name="openingHours">
 
-    <a href="index.jsp"><button>Speichern</button></a>
-</form>
-<div>
-    <h1 style="color:black;"><%= "Hier können Sie den Ticket preis änderen" %></h1>
-    <h2>Geben Sie den neuen Preis an </h2>
-    <form action="price-servlet" method="post">
-        <label for="ticketPrice"> Neuer Ticketpreis:</label>
-        <div align="center"><input type="text" id="ticketPrice" name="ticketPrice"><br><br></div>
-        <div align="center"><button type="submit">Ticketpreis ändern</button></div>
-    </form>
+<div class="row">
+    <div class="column" style="background-color:#FFEBB3;">
+        <h2>Update the opening hours:</h2>
+        <form method="post" action="zeit-servlet"><br><br>
+            <label> Enter the new opening hours :</label>
+            <input type="text" name="openingHours">
+            <a href="index.jsp"><button type="submit" >Submit</button></a>
+        </form>
+    </div>
+    <div class="column" style="background-color:#FFF2CC;">
+        <h2>Update the price of the Ticket:</h2>
+        <form action="price-servlet" method="post"><br><br>
+            <label for="ticketPrice"> Enter the new price:</label>
+            <input type="text" id="ticketPrice" name="ticketPrice">
+            <a href="index.jsp"> <button type="submit"  >Submit</button></a>
+        </form>
+    </div>
 </div>
+
 </body>
 </html>
 
