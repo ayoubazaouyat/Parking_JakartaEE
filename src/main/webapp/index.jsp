@@ -64,7 +64,7 @@
 </head>
 <body>
 <header>
-  <img src="image.png" alt="header image">
+  <img src="ihttps://vm-2d21.inf.h-brs.de/-/ide/project/inf_se1_ss23_Team_12_sose23/inf_se1_ss23_Team_12_sose23/edit/main/-/src/main/webapp/image.png alt="header image">
 
 </header>
 <script>
