@@ -61,41 +61,7 @@
   </style>
 </head>
 <body>
-<header>
-  <img src="../../images/logo.jpeg " alt="header image">
-
-</header>
-<script>
-  function updateClock() {
-    var now = new Date(); // aktuelle Zeit abrufen
-    var day = now.getDate(); // Tag abrufen
-    var month = now.getMonth() + 1; // Monat abrufen (Januar = 0, Februar = 1, ...)
-    var year = now.getFullYear(); // Jahr abrufen
-    var hours = now.getHours(); // Stunden abrufen
-    var minutes = now.getMinutes(); // Minuten abrufen
-    var seconds = now.getSeconds(); // Sekunden abrufen
-    var timeString = day + '.' + month + '.' + year + ' ' + hours + ':' + minutes + ':' + seconds; // Zeitformat erstellen
-    document.getElementById('clock').innerHTML = timeString; // Zeit in das HTML-Element schreiben
-  }
-  setInterval(updateClock, 1000); // Die Uhrzeit alle Sekunde aktualisieren
-</script>
-<section>
-
-  <div style="text-align:center;">
-    <h1>Welcome by Parkhauss 404</h1>
-    <h1 id="clock"></h1>
-    <h2>Opening Hours:</h2>
-    <p>${Offnungzeitenservlet.openingHours}</p>
-    <p> Free Places : ${Offnungzeitenservlet.Freeplaces}</p>
-    <% %>
-  </div>
-</section>
-<div class="btn-container">
-  <a href="ticket-servlet"><button>Get a Ticket</button></a>
-  <a href="hello-servlet"><button>Pay for your Ticket</button></a>
-  <a href="verlust-servlet"><button class="lost-btn">Lost your Ticket?</button></a>
-  <a href="offzeit.jsp"><button class="lost-btn">for owner!</button></a>
-</div>
+  <h1>See u soon !</h1>
 
 </body>
 </html>
