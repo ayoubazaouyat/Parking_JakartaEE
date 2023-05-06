@@ -27,15 +27,19 @@ public class TicketResponse extends HttpServlet{
         PrintWriter out = response.getWriter();
         out.println("<html><body>");
         out.println("<h1>" + "Thank you!" + "</h1>");
-        out.println("<p> Ticket with Number " + tickets.get(ticketNumber - 1).getTicketNummer() + "has beem succesfully submitted at "+ date+ "with Registration number "+ tickets.get(ticketNumber-1).getAutoNummer()+ "</p>");
+        out.println("<p> Ticket with Number " + tickets.get(ticketNumber - 1).getTicketNummer() + " has beem succesfully submitted at "+ date+ " with Registration number "+ tickets.get(ticketNumber-1).getAutoNummer()+ "</p>");
         out.println("</body></html>");
     }
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException , IOException {
-
-        doGet(request, response);
         PrintWriter out = response.getWriter();
-        out.println("<button onclick=\"window.location.href='index.jsp'\">Back to Home</button>");
+        try {
+            doGet(request, response);
+
+            out.println("<button onclick=\"window.location.href='index.jsp'\">Back to Home</button>");
+        } catch (IllegalStateException e ) {
+            out.println("<p> The Parking House is Full come back soon! </p>");
+        }
     }
 
     public void destroy() {

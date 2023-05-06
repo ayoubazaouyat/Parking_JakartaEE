@@ -55,6 +55,9 @@
       background-color: #fff;
       color: #333;
     }
+    .green{
+      color: #57e857;
+    }
     section{
       color: black;
 
@@ -84,11 +87,10 @@
 <section>
 
   <div style="text-align:center;">
-    <h1>Welcome by Parkhauss 404</h1>
+    <h1>Welcome To Parkhauss 404</h1>
     <h1 id="clock"></h1>
-    <h2>Opening Hours:</h2>
-    <p>${Offnungzeitenservlet.openingHours}</p>
-    <p> Free Places : ${Offnungzeitenservlet.Freeplaces}</p>
+    <h2>Opening Hours:  ${Offnungzeitenservlet.openingHours}</h2>
+    <p class="green"> Free Places : ${Offnungzeitenservlet.Freeplaces}</p>
     <p> Price per Hour : ${PriceServlet.ticketPrice} &#8364 </p>
     <% %>
   </div>

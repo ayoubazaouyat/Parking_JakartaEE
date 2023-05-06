@@ -1,4 +1,5 @@
 <%@ page import="com.example.parhausprj.Offnungzeitenservlet" %>
+<%@ page import="com.example.parhausprj.PriceServlet" %>
 <%@ page import="java.io.PrintWriter" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +10,7 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color:black;
+      background-color:#FFEBB3;
       margin: 0;
       padding: 0;
     }
@@ -19,6 +20,7 @@
       max-height: 250px; /* set the maximum height of the image */
       animation: fade-in 3.5s ease-out;
       width: auto; /* set the width of the image to auto */
+      border-radius: 40px;
 
     }
     @keyframes fade-in {
@@ -53,8 +55,11 @@
       background-color: #fff;
       color: #333;
     }
+    .green{
+      color: #57e857;
+    }
     section{
-      color: white;
+      color: black;
 
     }
 
@@ -62,7 +67,7 @@
 </head>
 <body>
 <header>
-  <img src="" alt="header image">
+  <img src="image.png" alt="header image">
 
 </header>
 <script>
@@ -82,11 +87,11 @@
 <section>
 
   <div style="text-align:center;">
-    <h1>Welcome by Parkhauss 404</h1>
+    <h1>Welcome To Parkhauss 404</h1>
     <h1 id="clock"></h1>
-    <h2>Opening Hours:</h2>
-    <p>${Offnungzeitenservlet.openingHours}</p>
-    <p> Free Places : ${Offnungzeitenservlet.Freeplaces}</p>
+    <h2>Opening Hours:  ${Offnungzeitenservlet.openingHours}</h2>
+    <p class="green"> Free Places : ${Offnungzeitenservlet.Freeplaces}</p>
+    <p> Price per Hour : ${PriceServlet.ticketPrice} &#8364 </p>
     <% %>
   </div>
 </section>

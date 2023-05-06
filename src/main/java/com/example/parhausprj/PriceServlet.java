@@ -35,8 +35,7 @@ public class PriceServlet extends HttpServlet  {
          ticketPrice = Double.parseDouble(request.getParameter("ticketPrice"));
 
         request.setAttribute("ticketPrice", ticketPrice);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
-        dispatcher.forward(request, response);
+        response.sendRedirect("index.jsp");
 
         //doGet(request,response);
 
