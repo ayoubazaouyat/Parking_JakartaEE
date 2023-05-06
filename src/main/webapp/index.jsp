@@ -1,4 +1,5 @@
 <%@ page import="com.example.parhausprj.Offnungzeitenservlet" %>
+<%@ page import="com.example.parhausprj.PriceServlet" %>
 <%@ page import="java.io.PrintWriter" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +10,7 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color:black;
+      background-color:#FFEBB3;
       margin: 0;
       padding: 0;
     }
@@ -19,6 +20,7 @@
       max-height: 250px; /* set the maximum height of the image */
       animation: fade-in 3.5s ease-out;
       width: auto; /* set the width of the image to auto */
+      border-radius: 40px;
 
     }
     @keyframes fade-in {
@@ -54,7 +56,7 @@
       color: #333;
     }
     section{
-      color: white;
+      color: black;
 
     }
 
@@ -62,7 +64,7 @@
 </head>
 <body>
 <header>
-  <img src="" alt="header image">
+  <img src="https://cdn.discordapp.com/attachments/828389750741532674/1104010948345339976/image.png " alt="header image">
 
 </header>
 <script>
@@ -87,6 +89,7 @@
     <h2>Opening Hours:</h2>
     <p>${Offnungzeitenservlet.openingHours}</p>
     <p> Free Places : ${Offnungzeitenservlet.Freeplaces}</p>
+    <p> Price per Hour : ${PriceServlet.ticketPrice} &#8364 </p>
     <% %>
   </div>
 </section>
