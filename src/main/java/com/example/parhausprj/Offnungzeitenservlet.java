@@ -13,9 +13,13 @@ public class Offnungzeitenservlet extends HttpServlet {
 
     private ParkhausIF parkhaus = new Parkhauss();
 
+    public static int Freeplaces= 10;
+    public  static String openingHours= "Mo-Fr 9-18, Sa-Su 10-16";
     public void init() {
         parkhaus = new Parkhauss();
+
         //parkhaus.setOpeningHours("Mo-Fr 9-18, Sa-Su 10-16");
+
 
     }
 
@@ -24,17 +28,14 @@ public class Offnungzeitenservlet extends HttpServlet {
             throws IOException, ServletException {
 
 
-        parkhaus.setOpeningHours(request.getParameter("openingHours"));
-        String openingHours = parkhaus.getOpeningHours();
-        request.setAttribute("openingHours", openingHours);
+        openingHours= request.getParameter("openingHours");
 
+        request.setAttribute("openingHours", openingHours);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
         dispatcher.forward(request, response);
 
-        if (openingHours != null && !openingHours.isEmpty()) {
-            parkhaus.setOpeningHours(openingHours);
-        }
-        doGet(request, response);
+
+
     }
 
 

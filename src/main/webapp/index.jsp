@@ -1,4 +1,4 @@
-%@ page import="com.example.parhausprj.Offnungzeitenservlet" %>
+<%@ page import="com.example.parhausprj.Offnungzeitenservlet" %>
 <%@ page import="java.io.PrintWriter" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -85,9 +85,8 @@
     <h1>Welcome by Parkhauss 404</h1>
     <h1 id="clock"></h1>
     <h2>Opening Hours:</h2>
-    <li>"Mo-Fr 9-18, Sa-Su 10-16"</li>
-
-    <p> new Opning Hours : ${openingHours}</p>
+    <p>${Offnungzeitenservlet.openingHours}</p>
+    <p> Free Places : ${Offnungzeitenservlet.Freeplaces}</p>
     <% %>
   </div>
 </section>

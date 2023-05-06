@@ -55,7 +55,10 @@ public class Ticket {
     }
 
 
-    public Date ticketZiehen() {
+    public Date ticketZiehen() throws IllegalStateException {
+        if(Offnungzeitenservlet.Freeplaces==0){
+            throw new IllegalStateException("No free places anymore");
+        }
         eintrittszeit = new Date();
         Offnungzeitenservlet.Freeplaces--;
         return eintrittszeit;
