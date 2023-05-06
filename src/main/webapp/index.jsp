@@ -64,7 +64,7 @@
 </head>
 <body>
 <header>
-  <img src="https://cdn.discordapp.com/attachments/828389750741532674/1104010948345339976/image.png " alt="header image">
+  <img src="https://vm-2d21.inf.h-brs.de/inf_se1_ss23_Team_12_sose23/inf_se1_ss23_Team_12_sose23/-/blob/main/src/main/webapp/image.png " alt="header image">
 
 </header>
 <script>
