@@ -62,7 +62,7 @@
 </head>
 <body>
 <header>
-  <img src="https://cdn.discordapp.com/attachments/828389750741532674/1104010948345339976/image.png " alt="header image">
+  <img src="../../images/logo.jpeg " alt="header image">
 
 </header>
 <script>
