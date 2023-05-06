@@ -45,9 +45,11 @@ public class Ticket {
         }
         if(verloren) {
             bezahlt = true;
+            Offnungzeitenservlet.Freeplaces++;
             return (this.ticketPrice*dauer)+ verlustGeb;
         } else {
             bezahlt = true;
+            Offnungzeitenservlet.Freeplaces++;
             return this.ticketPrice*dauer;
         }
     }
@@ -55,8 +57,11 @@ public class Ticket {
 
     public Date ticketZiehen() {
         eintrittszeit = new Date();
+        Offnungzeitenservlet.Freeplaces--;
         return eintrittszeit;
+
     }
+
 
     public double ticketValidieren() {
         if (eintrittszeit == null) {
