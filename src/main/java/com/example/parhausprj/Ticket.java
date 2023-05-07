@@ -40,17 +40,21 @@ public class Ticket {
 
     public double bezahlen() {
         double dauer = this.ticketValidieren();
+        double price ;
         if (bezahlt) {
             throw new IllegalStateException("You already paid your ticket!");
         }
         if(verloren) {
             bezahlt = true;
             Offnungzeitenservlet.Freeplaces++;
-            return (this.ticketPrice*dauer)+ verlustGeb;
+            price = (this.ticketPrice*dauer)+ verlustGeb;
+
+            return rounded(price) ;
         } else {
             bezahlt = true;
             Offnungzeitenservlet.Freeplaces++;
-            return this.ticketPrice*dauer;
+            price = this.ticketPrice*dauer;
+            return rounded(price);
         }
     }
 
@@ -96,6 +100,10 @@ public class Ticket {
 
     public boolean isVerloren() {
         return verloren;
+    }
+
+    public double rounded(double value) {
+        return (double)Math.round(value * 100d) / 100d;
     }
 
 
