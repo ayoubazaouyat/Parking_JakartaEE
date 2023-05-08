@@ -74,7 +74,9 @@
         </form>
     </div>
 </div>
- <a href="index.jsp"> <button type="submit"  >Back to Home</button></a>
+ <div style="display: flex; justify-content: center;">
+  <a href="index.jsp"><button type="submit">Back to Home</button></a>
+</div>
 </body>
 </html>
 
