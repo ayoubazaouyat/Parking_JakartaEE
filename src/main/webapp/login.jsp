@@ -1,6 +1,6 @@
 <%@ page import="java.io.PrintWriter" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Login</title>
     <style>
