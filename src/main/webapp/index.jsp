@@ -51,7 +51,7 @@
       color: white;
       background-color: #20409a;
       cursor: pointer;
-      transition: all 1.3s ease;
+      transition: all 0.3s ease;
       margin: 0 16px;
     }
     .btn-container button:hover {
@@ -62,11 +62,13 @@
   position: absolute;
   top: 0;
   left: 0;
-   
+  
 }
 
 .lost-btn, .log-btn {
   margin-left: 0px;
+  width: 180px;
+  padding: 16px 24px;
 }
   
     .green{
@@ -125,5 +127,4 @@
 
 </body>
 </html>
-
 
