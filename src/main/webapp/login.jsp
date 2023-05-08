@@ -1,11 +1,93 @@
 <%@ page import="java.io.PrintWriter" %>
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Login Page</title>
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color:#FFEBB3;
+            margin: 0;
+            padding: 0;
+        }
+
+        form {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"], input[type="password"] {
+            padding: 5px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            width: 100%;
+            max-width: 300px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            padding: 5px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .row {
+            display: flex;
+        }
+
+        .column {
+            flex: 50%;
+            padding: 10px;
+            height: 740px;
+        }
+
+        .error {
+            color: red;
+        }
+
+        div.center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
 </head>
 <body>
-<h1>Login Page</h1>
+<div class="center">
+    <div>
+        <h1>Login</h1>
+        <% if (request.getParameter("error") != null) { %>
+        <p class="error">Username or password is incorrect</p>
+        <% } %>
+        <form action="login.jsp" method="post">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+</div>
+</body>
+</html>
+
 <%
+   
     String username = request.getParameter("username");
     String password = request.getParameter("password");
     if ("admin".equals(username) && "1111".equals(password)) {
@@ -16,12 +98,5 @@
         out.println("<p>Invalid login credentials. Please try again.</p>");
     }
 %>
-<form method="post" action="login.jsp">
-    <label for="username">Username:</label>
-    <input type="text" name="username" id="username" /><br /><br />
-    <label for="password">Password:</label>
-    <input type="password" name="password" id="password" /><br /><br />
-    <input type="submit" value="Login" />
-</form>
-</body>
-</html>
+
+
