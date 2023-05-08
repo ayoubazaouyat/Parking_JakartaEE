@@ -1,4 +1,6 @@
-
+<%@ page import="com.example.parhausprj.Offnungzeitenservlet" %>
+<%@ page import="com.example.parhausprj.PriceServlet" %>
+<%@ page import="java.io.PrintWriter" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +10,7 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color:white;
+      background-color:#FFEBB3;
       margin: 0;
       padding: 0;
     }
@@ -44,8 +46,8 @@
       border-radius: 16px;
       font-size: 1.2rem;
       font-weight: bold;
-      color: white;
-      background-color: #20409a;
+      color: black;
+      background-color: #FFCA33;
       cursor: pointer;
       transition: all 0.3s ease;
       margin: 0 16px;
@@ -87,8 +89,8 @@
 
   <div style="text-align:center;">
     <h1>Welcome To Parkhauss 404</h1>
-    <h2 id="clock"></h1>
-    <h3>Opening Hours:  ${Offnungzeitenservlet.openingHours}</h2>
+    <h1 id="clock"></h1>
+    <h2>Opening Hours:  ${Offnungzeitenservlet.openingHours}</h2>
     <p class="green"> Free Places : ${Offnungzeitenservlet.Freeplaces}</p>
     <p> Price per Hour : ${PriceServlet.ticketPrice} &#8364 </p>
     <% %>
