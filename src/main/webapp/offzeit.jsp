@@ -74,7 +74,7 @@
         </form>
     </div>
 </div>
-
+out.println("<button onclick=\"window.location.href='index.jsp'\">Back to Home</button>");
 </body>
 </html>
 
