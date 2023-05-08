@@ -74,7 +74,7 @@
         </form>
     </div>
 </div>
-<button onclick=\"window.location.href='index.jsp'\">Back to Home</button>
+ <a href="index.jsp"> <button type="submit"  >Back to Home</button></a>
 </body>
 </html>
 
