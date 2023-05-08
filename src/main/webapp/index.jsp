@@ -57,6 +57,16 @@
       background-color: #fff;
       color: #333;
     }
+    .lost-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+   .log-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
     .green{
       color: #57e857;
     }
@@ -100,9 +110,11 @@
 <div class="btn-container">
   <a href="ticket-servlet"><button>Get a Ticket</button></a>
   <a href="hello-servlet"><button>Pay for your Ticket</button></a>
-  <a href="verlust-servlet"><button class="lost-btn">Lost your Ticket?</button></a>
-  <a href="login.jsp"><button class="lost-btn">for owner!</button></a>
+  <a href="verlust-servlet"><button>Lost your Ticket?</button></a>
+  <a href="login.jsp"><button class="lost-btn">Admin</button></a>
+  <a href="login.jsp"><button class="log-btn">Call the Suppot</button></a>
 </div>
+
 
 </body>
 </html>
