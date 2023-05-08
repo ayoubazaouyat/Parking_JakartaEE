@@ -67,7 +67,7 @@
 </head>
 <body>
 <header>
-  <img src="https://static.dw.com/image/57435940_303.jpg" alt="header image">
+  <img src="https://vm-2d21.inf.h-brs.de/inf_se1_ss23_Team_12_sose23/inf_se1_ss23_Team_12_sose23/-/blob/main/src/images/logo.jpeg" alt="header image">
 
 </header>
 <script>
