@@ -101,13 +101,19 @@
   setInterval(updateClock, 1000); // Die Uhrzeit alle Sekunde aktualisieren
 </script>
 <section>
+  <script>
+  function supportCall() {
+    
+    window.location.href = "tel:017662049220"; // Hier ersetzen Sie 0123456789 durch die Telefonnummer, die angerufen werden soll
+  }
+</script>
 
   <div style="text-align:center;">
     <h1>Welcome To Parkhauss 404</h1>
     <h2 id="clock"></h1>
     <h3>Opening Hours:  ${Offnungzeitenservlet.openingHours}</h3>
-    <p class="green"> Free Places : ${Offnungzeitenservlet.Freeplaces}</p>
-    <p> Price per Hour : ${PriceServlet.ticketPrice} &#8364 </p>
+    <h4 class="green"> Free Places : ${Offnungzeitenservlet.Freeplaces}</h4>
+    <h4> Price per Hour : ${PriceServlet.ticketPrice} &#8364 </h4>
     <% %>
   </div>
 </section>
@@ -119,7 +125,8 @@
 </div>
 <div class="admin-support-container">
     <a href="login.jsp"><button class="lost-btn">Admin &#x1F464</button></a>
-    <a href="login.jsp"><button class="log-btn"> Support  &#x1F4DE</button></a>
+    <button class="log-btn" onclick="supportCall()">Support &#x1F4DE </button>
+    
   </div>
 
 
@@ -127,4 +134,5 @@
 
 </body>
 </html>
+
 
