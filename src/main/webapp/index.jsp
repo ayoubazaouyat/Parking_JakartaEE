@@ -2,6 +2,7 @@
 <%@ page import="com.example.parhausprj.PriceServlet" %>
 <%@ page import="java.io.PrintWriter" %>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,23 +51,23 @@
       color: white;
       background-color: #20409a;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all 1.3s ease;
       margin: 0 16px;
     }
     .btn-container button:hover {
       background-color: #fff;
       color: #333;
     }
-    .lost-btn {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-   .log-btn {
+     .admin-support-container {
   position: absolute;
   top: 0;
   left: 0;
 }
+
+.lost-btn, .log-btn {
+  margin-left: 0px;
+}
+  
     .green{
       color: #57e857;
     }
@@ -111,10 +112,15 @@
   <a href="ticket-servlet"><button>Get a Ticket</button></a>
   <a href="hello-servlet"><button>Pay for your Ticket</button></a>
   <a href="verlust-servlet"><button>Lost your Ticket?</button></a>
-  <a href="login.jsp"><button class="lost-btn">Admin</button></a>
-  <a href="login.jsp"><button class="log-btn">Call the Suppot</button></a>
+  <div class="admin-support-container">
+    <a href="login.jsp"><button class="lost-btn">Admin &#x1F464</button></a>
+    <a href="login.jsp"><button class="log-btn"> Support  &#x1F4DE</button></a>
+  </div>
 </div>
+
+
 
 
 </body>
 </html>
+
