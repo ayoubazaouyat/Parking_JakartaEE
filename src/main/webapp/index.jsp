@@ -67,7 +67,7 @@
 </head>
 <body>
 <header>
-  <img src="https://vm-2d21.inf.h-brs.de/inf_se1_ss23_Team_12_sose23/inf_se1_ss23_Team_12_sose23/-/blob/main/src/main/webapp/image.png" alt="header image">
+  <img src="https://vm-2d21.inf.h-brs.de/-/ide/project/inf_se1_ss23_Team_12_sose23/inf_se1_ss23_Team_12_sose23/tree/main/-/src/main/webapp/image.png/" alt="header image">
 
 </header>
 <script>
