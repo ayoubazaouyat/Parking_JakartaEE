@@ -14,6 +14,25 @@
       margin: 0;
       padding: 0;
     }
+    header img {
+      display: block; /* make the image a block element */
+      margin: 0 auto; /* center the image horizontally */
+      max-height: 250px; /* set the maximum height of the image */
+      animation: fade-in 3.5s ease-out;
+      width: auto; /* set the width of the image to auto */
+      border-radius: 40px;
+
+    }
+    @keyframes fade-in {
+      0% {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
     
     .btn-container {
       display: flex;
