@@ -128,9 +128,15 @@ public class HelloServlet extends HttpServlet {
                 out.println("<p>Ticket Number: " + ticketNumber + "</p>");
                 out.println("<p>Eintrittzeit: " + ticket.eintrittszeit + "</p>");
                 out.println("<p>Austrittzeit: " + ticket.austrittszeit + "</p>");
+                out.println("<button onclick=\"printReceipt()\">Print Receipt</button>");
                 out.println("<p>Amount Charged: " + price + "<span>&#8364;</span> </p>");
                 out.println("<button onclick=\"window.location.href='index.jsp'\">Back to Home</button>");
                 out.println("</body></html>");
+                out.println("<script>");
+                out.println("function printReceipt() {");
+                out.println("  window.print();");
+                out.println("}");
+                out.println("</script>");
             } else {
 
 
