@@ -61,7 +61,7 @@
       color: #57e857;
     }
     section{
-      color: black;
+      color: #20409a;
 
     }
 
