@@ -55,9 +55,7 @@
             height: 740px;
         }
 
-        .error {
-            color: red;
-        }
+        
 
         div.center {
             display: flex;
@@ -67,13 +65,24 @@
         }
     </style>
 </head>
+
+
+<%
+
+    String username = request.getParameter("username");
+    String password = request.getParameter("password");
+    if ("admin".equals(username) && "1111".equals(password)) {
+        // Weiterleitung zur offzeit.jsp, wenn die Anmeldeinformationen korrekt sind
+        response.sendRedirect("offzeit.jsp");
+    } else if (username != null || password != null) {
+        // Ansonsten wird eine Fehlermeldung angezeigt
+        out.println("<p>Invalid login credentials. Please try again.</p>");
+    }
+%>
 <body>
 <div class="center">
     <div>
-        <h1>Login</h1>
-        <% if (request.getParameter("error") != null) { %>
-        <p class="error">Username or password is incorrect</p>
-        <% } %>
+        <h1>Admin Login</h1>
         <form action="login.jsp" method="post">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required><br>
@@ -85,18 +94,5 @@
 </div>
 </body>
 </html>
-
-<%
-   
-    String username = request.getParameter("username");
-    String password = request.getParameter("password");
-    if ("admin".equals(username) && "1111".equals(password)) {
-        // Weiterleitung zur offzeit.jsp, wenn die Anmeldeinformationen korrekt sind
-        response.sendRedirect("offzeit.jsp");
-    } else if (username != null || password != null) {
-        // Ansonsten wird eine Fehlermeldung angezeigt
-        out.println("<p>Invalid login credentials. Please try again.</p>");
-    }
-%>
 
 
