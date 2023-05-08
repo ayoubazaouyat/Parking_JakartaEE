@@ -67,7 +67,7 @@
 </head>
 <body>
 <header>
-  <img src="https://vm-2d21.inf.h-brs.de/-/ide/project/inf_se1_ss23_Team_12_sose23/inf_se1_ss23_Team_12_sose23/tree/main/-/src/main/webapp/image.png/" alt="header image">
+  <img src="https://www.google.com/search?sxsrf=APwXEdcLWsaQ36HRKchOcBtK_iv42P8Anw:1683574603689&q=parkhaus&tbm=isch&sa=X&ved=2ahUKEwjDsNKRvOb-AhXPJ-wKHZXCACEQ0pQJegQIDhAB&biw=2133&bih=1087&dpr=0.9#imgrc=bx4eYqL_5uQ0ZM" alt="header image">
 
 </header>
 <script>
