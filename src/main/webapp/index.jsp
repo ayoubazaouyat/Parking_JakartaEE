@@ -99,7 +99,7 @@
   <a href="ticket-servlet"><button>Get a Ticket</button></a>
   <a href="hello-servlet"><button>Pay for your Ticket</button></a>
   <a href="verlust-servlet"><button class="lost-btn">Lost your Ticket?</button></a>
-  <a href="offzeit.jsp"><button class="lost-btn">for owner!</button></a>
+  <a href="login.jsp"><button class="lost-btn">for owner!</button></a>
 </div>
 
 </body>
