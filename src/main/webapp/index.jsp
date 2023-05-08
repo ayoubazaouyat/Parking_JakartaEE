@@ -62,6 +62,7 @@
   position: absolute;
   top: 0;
   left: 0;
+   
 }
 
 .lost-btn, .log-btn {
@@ -112,15 +113,17 @@
   <a href="ticket-servlet"><button>Get a Ticket</button></a>
   <a href="hello-servlet"><button>Pay for your Ticket</button></a>
   <a href="verlust-servlet"><button>Lost your Ticket?</button></a>
-  <div class="admin-support-container">
+  
+</div>
+<div class="admin-support-container">
     <a href="login.jsp"><button class="lost-btn">Admin &#x1F464</button></a>
     <a href="login.jsp"><button class="log-btn"> Support  &#x1F4DE</button></a>
   </div>
-</div>
 
 
 
 
 </body>
 </html>
+
 
