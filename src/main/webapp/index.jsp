@@ -64,7 +64,12 @@
   left: 0;
   
 }
-
+  .uhr-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  
+}
 .lost-btn, .log-btn {
   margin-left: 0px;
   width: 180px;
@@ -110,7 +115,7 @@
 
   <div style="text-align:center;">
     <h1>Welcome To Parkhauss 404</h1>
-    <h2 id="clock"></h1>
+    <h1 class="uhr-btn" id="clock"></h1>
     <h3>Opening Hours:  ${Offnungzeitenservlet.openingHours}</h3>
     <h4 class="green"> Free Places : ${Offnungzeitenservlet.Freeplaces}</h4>
     <h4> Price per Hour : ${PriceServlet.ticketPrice} &#8364 </h4>
@@ -134,5 +139,3 @@
 
 </body>
 </html>
-
-
