@@ -133,7 +133,7 @@
     <button class="log-btn" onclick="supportCall()">Support &#x1F4DE </button>
     
   </div>
-  <div class="Qr"style="text-align:center;" >
+<div class="Qr"style="text-align:center; margin-top: -80px;" >
 
 <a href="https://form.jotform.com/231312960388053" rel="nofollow">
   <img src="https://www.jotform.com/uploads/Parkhaus404services/form_files/231312960388053_1683927497_qrcode_muse.png" width="100%" style="max-width: 200px" alt="QR Code for Jotform form">
