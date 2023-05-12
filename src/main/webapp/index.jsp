@@ -122,7 +122,7 @@
     <% %>
   </div>
 </section>
-<div class="btn-container">
+<div class="btn-container"style=" margin-top: -60px;" >
   <a href="ticket-servlet"><button>Get a Ticket</button></a>
   <a href="hello-servlet"><button>Pay for your Ticket</button></a>
   <a href="verlust-servlet"><button>Lost your Ticket?</button></a>
