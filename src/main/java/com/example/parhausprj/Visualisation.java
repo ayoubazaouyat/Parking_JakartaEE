@@ -43,6 +43,10 @@ public class Visualisation  extends HttpServlet{
                 "            align-items: center;\n" + */
                 "            position: relative;" +
                 "        }\n" +
+                "        car {" +
+                        "     text-align: center;" +
+                        "     margin-top: -80px;" +
+                        "}\n"+
                 "\n" +
                 "        .row {\n" +
                 "            display: flex;\n" +
@@ -65,23 +69,27 @@ public class Visualisation  extends HttpServlet{
                 "            background-color: #e74c3c;\n" +
                 "        }\n" +
                         ".top-left {\n" +
-                        "  top: 10px;\n" +
-                        "  left: 10px;\n" +
+                        "  position: absolute;" +
+                        "  top: 0;\n" +
+                        "  left: 0;\n" +
                         "}\n" +
                         "\n" +
                         ".top-right {\n" +
-                        "  top: 10px;\n" +
-                        "  right: 10px;\n" +
+                        "  position: absolute;" +
+                        "  top: 0;\n" +
+                        "  right: 0;\n" +
                         "}\n" +
                         "\n" +
                         ".bottom-left {\n" +
-                        "  bottom: 10px;\n" +
-                        "  left: 10px;\n" +
+                        "  position: absolute;"+
+                        "  bottom: 0;\n" +
+                        "  left: 0;\n" +
                         "}\n" +
                         "\n" +
                         ".bottom-right {\n" +
-                        "  bottom: 10px;\n" +
-                        "  right: 10px;\n" +
+                        "  position: absolute;"+
+                        "  bottom: 0;\n" +
+                        "  right: 0;\n" +
                         "}\n"+
                 "    </style>\n" +
                 "</head>\n" +
@@ -93,16 +101,16 @@ public class Visualisation  extends HttpServlet{
             String position ;
             switch (level) {
                 case 0 :
-                    out.println("<div class = \"top-right\"> <p> First Level</p>");
+                    out.println("<div class = \"top-left\"> <p> First Level</p>");
                     break;
                 case 1 :
-                    out.println("<div class = \"top-left\"> <p> Second Level</p>");
+                    out.println("<div class = \"bottom-left\"> <p> Second Level</p>");
                     break;
                 case 2 :
-                    out.println("<div class = \"bottom-right\"> <p> Third Level</p>");
+                    out.println("<div class = \"top-right\"> <p> Third Level</p>");
                     break;
                 case 3 :
-                    out.println("<div class = \"bottom-left\"> <p> Fourth Level</p>");
+                    out.println("<div class = \"bottom-right\"> <p> Fourth Level</p>");
                     break;
 
             }
@@ -120,7 +128,8 @@ public class Visualisation  extends HttpServlet{
                         car = "";
 
                     }
-                    out.println("        <div class=\"spot " + occ +" \"> " + car + " </div>\n");
+                    out.println("        <div class=\"spot " + occ +" \"> "+ i1  +"<div class= \"car\" " +
+                            "style = \"text-align: center; margin-top: 0; font-size: 11px;\">"+ car +  "</div>" +" </div>\n");
                     k++;
                 }
                 out.println("    "+(level+1) + "- "+(i+1) + "</div>\n" );
