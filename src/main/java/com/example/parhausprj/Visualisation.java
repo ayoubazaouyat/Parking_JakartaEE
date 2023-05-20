@@ -95,22 +95,24 @@ public class Visualisation  extends HttpServlet{
                 "</head>\n" +
                 "<body>\n" +
                 "\n" +
+                        "<h2 > Parking lot Visualisation </h2>" +
+
                 "<div class=\"parking-lot\">\n" );
 
         for (int level = 0 ; level < 4 ; level++) {
             String position ;
             switch (level) {
                 case 0 :
-                    out.println("<div class = \"top-left\"> <p> First Level</p>");
+                    out.println("<div class = \"top-left\"> <p style = \"text-align: center; \"> <b>First Level</b></p>");
                     break;
                 case 1 :
-                    out.println("<div class = \"bottom-left\"> <p> Second Level</p>");
+                    out.println("<div class = \"bottom-left\"> <p style = \"text-align: center; \"> <b>Second Level</b></p>");
                     break;
                 case 2 :
-                    out.println("<div class = \"top-right\"> <p> Third Level</p>");
+                    out.println("<div class = \"top-right\"> <p style = \"text-align: center; \"> <b>Third Level</b></p>");
                     break;
                 case 3 :
-                    out.println("<div class = \"bottom-right\"> <p> Fourth Level</p>");
+                    out.println("<div class = \"bottom-right\"> <p style = \"text-align: center; \"> <b>Fourth Level</b></p>");
                     break;
 
             }
