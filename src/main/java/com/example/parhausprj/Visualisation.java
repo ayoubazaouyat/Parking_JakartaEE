@@ -14,8 +14,8 @@ public class Visualisation  extends HttpServlet{
     String car ;
 
     public void init() {
-         occ = "occupied";
-         car = "";
+        occ = "occupied";
+        car = "";
     }
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
@@ -27,47 +27,47 @@ public class Visualisation  extends HttpServlet{
 
         out.println(
                 "<html>\n" +
-                "<head>\n" +
-                "    <title>Park Visualisation </title>\n" +
-                "    <style>\n" +
-                "        body {\n" +
-                "            font-family: Arial, sans-serif;\n" +
-                "            background-color:#FFEBB3;\n" +
-                "            margin: 0;\n" +
-                "            padding: 0;\n" +
-                "        }\n" +
-                "        parking-lot {\n" +
+                        "<head>\n" +
+                        "    <title>Park Visualisation </title>\n" +
+                        "    <style>\n" +
+                        "        body {\n" +
+                        "            font-family: Arial, sans-serif;\n" +
+                        "            background-color:#FFEBB3;\n" +
+                        "            margin: 0;\n" +
+                        "            padding: 0;\n" +
+                        "        }\n" +
+                        "        parking-lot {\n" +
                /* "             display: flex;\n" +
                 "            flex-direction: column;\n" +
                 "            justify-content: center;\n" +
                 "            align-items: center;\n" + */
-                "            position: relative;" +
-                "        }\n" +
-                "        car {" +
+                        "            position: relative;" +
+                        "        }\n" +
+                        "        car {" +
                         "     text-align: center;" +
                         "     margin-top: -80px;" +
                         "}\n"+
-                "\n" +
-                "        .row {\n" +
-                "            display: flex;\n" +
+                        "\n" +
+                        "        .row {\n" +
+                        "            display: flex;\n" +
                 /*"            justify-content: left;\n" +
                         "    align-items: left;\n" + */
-                "            margin-bottom: 10px;\n" +
-                "        }\n" +
-                "\n" +
-                "        .spot {\n" +
-                "            width: 50px;\n" +
-                "            height: 50px;\n" +
-                "            background-color: lightgreen;\n" +
-                "            border: 1px solid #ccc;\n" +
-                "            margin: 5px;\n" +
-                "            border-radius: 5px;\n" +
-                "            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n" +
-                "        }\n" +
-                "\n" +
-                "        .occupied {\n" +
-                "            background-color: #e74c3c;\n" +
-                "        }\n" +
+                        "            margin-bottom: 10px;\n" +
+                        "        }\n" +
+                        "\n" +
+                        "        .spot {\n" +
+                        "            width: 50px;\n" +
+                        "            height: 50px;\n" +
+                        "            background-color: lightgreen;\n" +
+                        "            border: 1px solid #ccc;\n" +
+                        "            margin: 5px;\n" +
+                        "            border-radius: 5px;\n" +
+                        "            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n" +
+                        "        }\n" +
+                        "\n" +
+                        "        .occupied {\n" +
+                        "            background-color: #e74c3c;\n" +
+                        "        }\n" +
                         ".top-left {\n" +
                         "  position: absolute;" +
                         "  top: 0;\n" +
@@ -91,13 +91,13 @@ public class Visualisation  extends HttpServlet{
                         "  bottom: 0;\n" +
                         "  right: 0;\n" +
                         "}\n"+
-                "    </style>\n" +
-                "</head>\n" +
-                "<body>\n" +
-                "\n" +
+                        "    </style>\n" +
+                        "</head>\n" +
+                        "<body>\n" +
+                        "\n" +
                         "<h2 > Parking lot Visualisation </h2>" +
 
-                "<div class=\"parking-lot\">\n" );
+                        "<div class=\"parking-lot\">\n" );
 
         for (int level = 0 ; level < 4 ; level++) {
             String position ;
