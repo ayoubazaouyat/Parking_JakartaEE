@@ -35,13 +35,8 @@ public class Visualisation  extends HttpServlet{
                         "            background-color:#FFEBB3;\n" +
                         "            margin: 0;\n" +
                         "            padding: 0;\n" +
+                        "            overflow: hidden;" +
                         "        }\n" +
-                        "        parking-lot {\n" +
-               /* "             display: flex;\n" +
-                "            flex-direction: column;\n" +
-                "            justify-content: center;\n" +
-                "            align-items: center;\n" + */
-                        "            position: relative;" +
                         "        }\n" +
                         "        car {" +
                         "     text-align: center;" +
@@ -68,26 +63,28 @@ public class Visualisation  extends HttpServlet{
                         "        .occupied {\n" +
                         "            background-color: #e74c3c;\n" +
                         "        }\n" +
+                        "  .corner {\n" +
+                        "            position: fixed;\n" +
+                        "            width: 50%;" +
+                        "            height: 50%;"  +
+                        "        }\n" +
                         ".top-left {\n" +
-                        "  position: absolute;" +
                         "  top: 0;\n" +
                         "  left: 0;\n" +
                         "}\n" +
                         "\n" +
                         ".top-right {\n" +
-                        "  position: absolute;" +
                         "  top: 0;\n" +
                         "  right: 0;\n" +
+
                         "}\n" +
                         "\n" +
                         ".bottom-left {\n" +
-                        "  position: absolute;"+
                         "  bottom: 0;\n" +
                         "  left: 0;\n" +
                         "}\n" +
                         "\n" +
                         ".bottom-right {\n" +
-                        "  position: absolute;"+
                         "  bottom: 0;\n" +
                         "  right: 0;\n" +
                         "}\n"+
@@ -99,23 +96,29 @@ public class Visualisation  extends HttpServlet{
 
                         "<div class=\"parking-lot\">\n" );
 
-        for (int level = 0 ; level < 4 ; level++) {
-            String position ;
-            switch (level) {
-                case 0 :
-                    out.println("<div class = \"top-left\"> <p style = \"text-align: center; \"> <b>First Level</b></p>");
-                    break;
-                case 1 :
-                    out.println("<div class = \"bottom-left\"> <p style = \"text-align: center; \"> <b>Second Level</b></p>");
-                    break;
-                case 2 :
-                    out.println("<div class = \"top-right\"> <p style = \"text-align: center; \"> <b>Third Level</b></p>");
-                    break;
-                case 3 :
-                    out.println("<div class = \"bottom-right\"> <p style = \"text-align: center; \"> <b>Fourth Level</b></p>");
-                    break;
 
+        for (int level = 0 ; level < 4 ; level++) {
+            String position;
+            switch (level) {
+                case 0:
+                    position = "top-left";
+                    break;
+                case 1:
+                    position = "bottom-left";
+                    break;
+                case 2:
+                    position = "top-right";
+                    break;
+                case 3:
+                    position = "bottom-right";
+                    break;
+                default:
+                    position = "";
+                    break;
             }
+
+            out.println("<div class=\"corner " + position + "\">");
+            out.println("<p style=\"text-align: center;\"><b>Level " + (level + 1) + "</b></p>");
             for( int i = 0 ; i < 5 ; i++){
                 int k = 0;
                 out.println("    <div class=\"row\">"+(level+1) + "- "+(i+1) +"\n");
