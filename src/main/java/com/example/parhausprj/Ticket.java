@@ -1,6 +1,7 @@
 package com.example.parhausprj;
 
 import java.util.Date;
+import java.util.Random;
 
 public class Ticket {
     int ticketNummer ;
@@ -16,6 +17,16 @@ public class Ticket {
     boolean verloren;
     double verlustGeb= 50.0;
     boolean bezahlt = false ;
+
+    public int getPlace() {
+        return place;
+    }
+
+    public void setPlace(int place) {
+        this.place = place;
+    }
+
+    int place ;
 
 
     public int getTicketNummer() {
@@ -49,11 +60,15 @@ public class Ticket {
             Offnungzeitenservlet.Freeplaces++;
             price = (this.ticketPrice*dauer)+ verlustGeb;
 
+            Parkhauss.lots[this.place] = null ; // empty parking place
+
             return rounded(price) ;
         } else {
             bezahlt = true;
             Offnungzeitenservlet.Freeplaces++;
             price = this.ticketPrice*dauer;
+
+            Parkhauss.lots[this.place] = null ; // empty parking place
             return rounded(price);
         }
     }

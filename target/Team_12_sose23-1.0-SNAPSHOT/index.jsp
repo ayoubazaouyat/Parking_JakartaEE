@@ -1,6 +1,8 @@
 <%@ page import="com.example.parhausprj.Offnungzeitenservlet" %>
 <%@ page import="com.example.parhausprj.PriceServlet" %>
 <%@ page import="java.io.PrintWriter" %>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +12,7 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color:#FFEBB3;
+      background-color:#FAFAD2;
       margin: 0;
       padding: 0;
     }
@@ -33,6 +35,7 @@
         transform: scale(1);
       }
     }
+    
     .btn-container {
       display: flex;
       justify-content: center;
@@ -45,8 +48,8 @@
       border-radius: 16px;
       font-size: 1.2rem;
       font-weight: bold;
-      color: black;
-      background-color: #FFCA33;
+      color: white;
+      background-color: #20409a;
       cursor: pointer;
       transition: all 0.3s ease;
       margin: 0 16px;
@@ -55,11 +58,29 @@
       background-color: #fff;
       color: #333;
     }
+     .admin-support-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+}
+  .uhr-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  
+}
+.lost-btn, .log-btn {
+  margin-left: 0px;
+  width: 180px;
+  padding: 16px 24px;
+}
+  
     .green{
       color: #57e857;
     }
     section{
-      color: black;
+      color: #20409a;
 
     }
 
@@ -67,7 +88,7 @@
 </head>
 <body>
 <header>
-  <img src="https://vm-2d21.inf.h-brs.de/inf_se1_ss23_Team_12_sose23/inf_se1_ss23_Team_12_sose23/-/blob/main/src/main/webapp/image.png" alt="header image">
+  <img src="https://static.vecteezy.com/system/resources/previews/016/770/608/original/parking-road-sign-on-transparent-background-free-png.png" alt="header image">
 
 </header>
 <script>
@@ -85,22 +106,42 @@
   setInterval(updateClock, 1000); // Die Uhrzeit alle Sekunde aktualisieren
 </script>
 <section>
+  <script>
+  function supportCall() {
+    
+    window.location.href = "tel:017662049220"; // Hier ersetzen Sie 0123456789 durch die Telefonnummer, die angerufen werden soll
+  }
+</script>
 
   <div style="text-align:center;">
     <h1>Welcome To Parkhauss 404</h1>
-    <h1 id="clock"></h1>
-    <h2>Opening Hours:  ${Offnungzeitenservlet.openingHours}</h2>
-    <p class="green"> Free Places : ${Offnungzeitenservlet.Freeplaces}</p>
-    <p> Price per Hour : ${PriceServlet.ticketPrice} &#8364 </p>
+    <h1 class="uhr-btn" id="clock"></h1>
+    <h3>Opening Hours:  ${Offnungzeitenservlet.openingHours}</h3>
+    <h4 class="green"> Free Places : ${Offnungzeitenservlet.Freeplaces}</h4>
+    <h4> Price per Hour : ${PriceServlet.ticketPrice} &#8364 </h4>
     <% %>
   </div>
 </section>
-<div class="btn-container">
+<div class="btn-container"style=" margin-top: -60px;" >
   <a href="ticket-servlet"><button>Get a Ticket</button></a>
   <a href="hello-servlet"><button>Pay for your Ticket</button></a>
-  <a href="verlust-servlet"><button class="lost-btn">Lost your Ticket?</button></a>
-  <a href="offzeit.jsp"><button class="lost-btn">for owner!</button></a>
+  <a href="verlust-servlet"><button>Lost your Ticket?</button></a>
+  
 </div>
+<div class="admin-support-container">
+    <a href="login.jsp"><button class="lost-btn">Admin &#x1F464</button></a>
+    <button class="log-btn" onclick="supportCall()">Support &#x1F4DE </button>
+    
+  </div>
+<div class="Qr"style="text-align:center; margin-top: -80px;" >
+
+<a href="https://form.jotform.com/231312960388053" rel="nofollow">
+  <img src="https://www.jotform.com/uploads/Parkhaus404services/form_files/231312960388053_1683927497_qrcode_muse.png" width="100%" style="max-width: 200px" alt="QR Code for Jotform form">
+</a>
+ <h3>Scan it to Giv us a Feedback</h3>
+</div>
+
+
 
 </body>
 </html>

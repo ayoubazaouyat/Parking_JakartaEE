@@ -77,6 +77,7 @@
  <div style="display: flex; justify-content: center;">
   <a href="index.jsp"><button type="submit">Back to Home</button></a>
 </div>
+ <a href="visualisation"><button>Park Visualisation </button></a>
 </body>
 </html>
 

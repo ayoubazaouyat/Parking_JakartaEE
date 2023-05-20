@@ -13,7 +13,7 @@ public class Offnungzeitenservlet extends HttpServlet {
 
     private ParkhausIF parkhaus = new Parkhauss();
 
-    public static int Freeplaces= 150;
+    public static int Freeplaces= 200;
     public  static String openingHours= "Mo-Fr 9-18, Sa-Su 10-16";
     public void init() {
         parkhaus = new Parkhauss();
@@ -33,6 +33,7 @@ public class Offnungzeitenservlet extends HttpServlet {
         request.setAttribute("openingHours", openingHours);
         //RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
         //dispatcher.forward(request, response);
+
         response.sendRedirect("index.jsp");
 
 

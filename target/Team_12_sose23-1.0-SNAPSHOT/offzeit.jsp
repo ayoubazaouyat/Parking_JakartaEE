@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Öffnungszeiten</title>
     <style>
@@ -74,7 +74,10 @@
         </form>
     </div>
 </div>
-
+ <div style="display: flex; justify-content: center;">
+  <a href="index.jsp"><button type="submit">Back to Home</button></a>
+</div>
+ <a href="visualisation"><button>Park Visualisation </button></a>
 </body>
 </html>
 

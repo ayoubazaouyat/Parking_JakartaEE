@@ -5,6 +5,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -19,15 +20,19 @@ public class TicketResponse extends HttpServlet{
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
 
         tickets.add(new Ticket(++ticketNumber,request.getParameter("matrikulNummer"),PriceServlet.ticketPrice));
-        //tickets.add(new Ticket(++ticketNumber,request.getParameter("matrikulNummer"),2.5));
         Date date = tickets.get(ticketNumber-1).ticketZiehen();
+        int place = chooseLot();
+        Parkhauss.lots[place] = tickets.get(ticketNumber - 1).getAutoNummer();
+        tickets.get(ticketNumber-1).setPlace(place);
 
-        PrintWriter out = response.getWriter();
         out.println("<html><body>");
         out.println("<h1>" + "Thank you!" + "</h1>");
-        out.println("<p> Ticket with Number " + tickets.get(ticketNumber - 1).getTicketNummer() + " has beem succesfully submitted at "+ date+ " with Registration number "+ tickets.get(ticketNumber-1).getAutoNummer()+ "</p>");
+        out.println("<p> Ticket with Number " + tickets.get(ticketNumber - 1).getTicketNummer() +
+                " has beem succesfully submitted at "+ date+ " with Registration number "+ tickets.get(ticketNumber-1).getAutoNummer()+
+                "lot number : "+ place +"</p>");
         out.println("</body></html>");
     }
     public void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -43,5 +48,18 @@ public class TicketResponse extends HttpServlet{
     }
 
     public void destroy() {
+    }
+    public static int chooseLot() {
+        boolean done = false ;
+        Random rand = new Random();
+        int lot =0;
+        while (done == false) {
+            lot = rand.nextInt(200);
+            if (Parkhauss.lots[lot] != null) {
+                continue;
+            }
+            done = true;
+        }
+        return lot ;
     }
 }
