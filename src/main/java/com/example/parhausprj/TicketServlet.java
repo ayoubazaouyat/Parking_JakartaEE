@@ -77,7 +77,8 @@ public class TicketServlet extends HttpServlet {
         out.println("<h1>" + message + "</h1>");
         out.println("<form action=\"ticket-response \"method=\"post\">" +
                 "<label for=\"matrikulNummer\">Car registration number:</label>" +
-                "<input type=\"text\" id=\"matrikulNummer\" name=\"matrikulNummer\"\" required><br><br>"+
+                "<input type=\"text\" pattern=\"[A-Za-z]{2}-[A-Za-z]{2}-[0-9]{4}\" " +
+                "id=\"matrikulNummer\" title=\"i.e BB-BB-0000\" name=\"matrikulNummer\"\" required><br><br>"+
                 "<input type=\"submit\"value=\"Submit\"> " +
                 "</form>");
         out.println("</div>");

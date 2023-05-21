@@ -14,26 +14,36 @@ import javax.servlet.annotation.*;
 public class TicketResponse extends HttpServlet{
     public int ticketNumber = 0;
     public static List<Ticket> tickets = new ArrayList<>();
+
     public void init() {
 
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        boolean stop =false  ;
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
+        for(Ticket ticket : tickets) {
+            if (ticket.getAutoNummer().equals(request.getParameter("matrikulNummer")) && ticket.bezahlt == false ) {
+                stop = true;
+            }
+        }
+        if (stop) {
+            out.println("<p> You are already inside! <p>");
+        } else {
+            tickets.add(new Ticket(++ticketNumber,request.getParameter("matrikulNummer"),PriceServlet.ticketPrice));
+            Date date = tickets.get(ticketNumber-1).ticketZiehen();
+            int place = chooseLot();
+            Parkhauss.lots[place] = tickets.get(ticketNumber - 1).getAutoNummer();
+            tickets.get(ticketNumber-1).setPlace(place);
 
-        tickets.add(new Ticket(++ticketNumber,request.getParameter("matrikulNummer"),PriceServlet.ticketPrice));
-        Date date = tickets.get(ticketNumber-1).ticketZiehen();
-        int place = chooseLot();
-        Parkhauss.lots[place] = tickets.get(ticketNumber - 1).getAutoNummer();
-        tickets.get(ticketNumber-1).setPlace(place);
-
-        out.println("<html><body>");
-        out.println("<h1>" + "Thank you!" + "</h1>");
-        out.println("<p> Ticket with Number " + tickets.get(ticketNumber - 1).getTicketNummer() +
-                " has beem succesfully submitted at "+ date+ " with Registration number "+ tickets.get(ticketNumber-1).getAutoNummer()+
-                "lot number : "+ place +"</p>");
-        out.println("</body></html>");
+            out.println("<html><body>");
+            out.println("<h1>" + "Thank you!" + "</h1>");
+            out.println("<p> Ticket with Number " + tickets.get(ticketNumber - 1).getTicketNummer() +
+                    " has beem succesfully submitted at "+ date+ " with Registration number "+ tickets.get(ticketNumber-1).getAutoNummer()+
+                    "lot number : "+ place +"</p>");
+            out.println("</body></html>");
+        }
     }
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException , IOException {

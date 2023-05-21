@@ -23,6 +23,9 @@ public class Parkplatz {
         }
         return null;
     }
+    public  ParkingSpace getSpace(int i) {
+        return parkingSpaces.get(i);
+    }
 
 
     public void releaseParkingSpace(ParkingSpace parkingSpace) {
