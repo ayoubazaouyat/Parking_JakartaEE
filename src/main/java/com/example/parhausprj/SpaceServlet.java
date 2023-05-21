@@ -85,11 +85,11 @@ public class SpaceServlet extends HttpServlet {
         out.println("<h1>Reserve a Parking Space</h1>");
         out.println("<form action=\"platz-servlet\" method=\"post\">");
         out.println("<label for=\"spaceNumber\">Enter the number of the parking space you want to reserve:</label>");
-        out.println("<input type=\"text\" id=\"spaceNumber\" name=\"spaceNumber\">");
+        out.println("<input type=\"text\" id=\"spaceNumber\" name=\"spaceNumber\" required>");
         out.println("<br><br>");
         out.println("<label for=\"autonummer\">Enter your license plate number\n</label>");
         out.println("<input type=\"text\" pattern=\"[A-Za-z]{2}-[A-Za-z]{2}-[0-9]{4}\" " +
-                "title=\"i.e BB-BB-0000\" id=\"autonummer\" name=\"autonummer\">");
+                "title=\"i.e BB-BB-0000\" id=\"autonummer\" name=\"autonummer\" required>");
         out.println("<br><br>");
         out.println("<input type=\"submit\" value=\"Submit\">");
         out.println("</form>");

@@ -64,6 +64,8 @@
             <input type="text" name="openingHours">
             <a href="index.jsp"><button type="submit" >Submit</button></a>
         </form>
+        <h2>Parking House Visualisation</h2>
+        <a href="visualisation"><button type="submit"> Visualisation </button></a>
     </div>
     <div class="column" style="background-color:#FFF2CC;">
         <h2>Update the price of the Ticket:</h2>
@@ -72,12 +74,13 @@
             <input type="text" id="ticketPrice" name="ticketPrice">
             <a href="index.jsp"> <button type="submit"  >Submit</button></a>
         </form>
+
     </div>
 </div>
  <div style="display: flex; justify-content: center;">
   <a href="index.jsp"><button type="submit">Back to Home</button></a>
 </div>
- <a href="visualisation"><button>Park Visualisation </button></a>
+
 </body>
 </html>
 

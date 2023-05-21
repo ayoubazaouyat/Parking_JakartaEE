@@ -75,11 +75,24 @@ public class Ticket {
 
 
     public Date ticketZiehen() throws IllegalStateException {
+        boolean reserved = false;
         if(Offnungzeitenservlet.Freeplaces==0){
             throw new IllegalStateException("No free places anymore");
         }
         eintrittszeit = new Date();
-        Offnungzeitenservlet.Freeplaces--;
+        for (int i = 0; i<200 ; i++){
+            try {
+                if (SpaceServlet.parkplatz.getSpace(i).getAutonummer().equals(this.autoNummer) ) {
+                    reserved = true;
+                }
+            } catch (Exception e) {
+
+            }
+
+        }
+        if (!reserved) {
+            Offnungzeitenservlet.Freeplaces--;
+        }
         return eintrittszeit;
 
     }
