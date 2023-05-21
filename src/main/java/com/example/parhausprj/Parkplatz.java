@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Parkplatz {
 
-    public static List<ParkingSpace> parkingSpaces;
+    private List<ParkingSpace> parkingSpaces;
 
     public Parkplatz(int numSpaces) {
         parkingSpaces = new ArrayList<>(numSpaces);
@@ -13,12 +13,16 @@ public class Parkplatz {
             parkingSpaces.add(new ParkingSpace(i));
         }
     }
-    public static ParkingSpace reserveParkingSpace(int spaceNumber) {
+    public  ParkingSpace reserveParkingSpace(int spaceNumber,String autonummer) {
         for (ParkingSpace parkingSpace : parkingSpaces) {
             if (parkingSpace.getNumber() == spaceNumber && parkingSpace.isAvailable()) {
-                parkingSpace.setAvailable(false);
-                Offnungzeitenservlet.Freeplaces--;
-                return parkingSpace;
+                if (Parkhauss.lots[spaceNumber-1] == null) {
+                    parkingSpace.setAvailable(false);
+                    parkingSpace.setAutonummer(autonummer);
+                    Offnungzeitenservlet.Freeplaces--;
+                    return parkingSpace;
+                }
+
             }
         }
         return null;
@@ -28,11 +32,17 @@ public class Parkplatz {
     }
 
 
+
     public void releaseParkingSpace(ParkingSpace parkingSpace) {
         parkingSpace.setAvailable(true);
     }
 
     class ParkingSpace {
+
+
+
+
+        private String autonummer;
         private int number;
         private boolean available;
 
@@ -51,6 +61,12 @@ public class Parkplatz {
 
         public void setAvailable(boolean available) {
             this.available = available;
+        }
+        public void setAutonummer(String autonummer) {
+            this.autonummer = autonummer;
+        }
+        public String getAutonummer() {
+            return autonummer;
         }
 
 

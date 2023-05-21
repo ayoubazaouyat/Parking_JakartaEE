@@ -80,7 +80,8 @@ public class TicketServlet extends HttpServlet {
                 "<input type=\"text\" pattern=\"[A-Za-z]{2}-[A-Za-z]{2}-[0-9]{4}\" " +
                 "id=\"matrikulNummer\" title=\"i.e BB-BB-0000\" name=\"matrikulNummer\"\" required><br><br>"+
                 "<input type=\"submit\"value=\"Submit\"> " +
-                "</form>");
+                "</form>" +
+                "<a href=\"index.jsp\"><button type=\"Go Back\">Back to Home</button></a>");
         out.println("</div>");
         out.println("</body></html>");
     }

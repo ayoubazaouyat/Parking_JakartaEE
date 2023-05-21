@@ -33,7 +33,7 @@ public class TicketResponse extends HttpServlet{
         } else {
             tickets.add(new Ticket(++ticketNumber,request.getParameter("matrikulNummer"),PriceServlet.ticketPrice));
             Date date = tickets.get(ticketNumber-1).ticketZiehen();
-            int place = chooseLot();
+            int place = chooseLot(tickets.get(ticketNumber - 1).getAutoNummer());
             Parkhauss.lots[place] = tickets.get(ticketNumber - 1).getAutoNummer();
             tickets.get(ticketNumber-1).setPlace(place);
 
@@ -59,17 +59,36 @@ public class TicketResponse extends HttpServlet{
 
     public void destroy() {
     }
-    public static int chooseLot() {
+    public static int chooseLot(String autonummer) {
         boolean done = false ;
-        Random rand = new Random();
-        int lot =0;
-        while (done == false) {
-            lot = rand.nextInt(200);
-            if (Parkhauss.lots[lot] != null) {
-                continue;
+        boolean reserved = false;
+        int resLot = 0;
+        for (int i = 0; i<200 ; i++){
+            try {
+                if (SpaceServlet.parkplatz.getSpace(i).getAutonummer().equals(autonummer) ) {
+                    reserved = true;
+                    resLot = i;
+                }
+            } catch (Exception e) {
+
             }
-            done = true;
+
         }
-        return lot ;
+        if (reserved) {
+            SpaceServlet.parkplatz.getSpace(resLot).setAvailable(true);
+            return resLot;
+        }else{
+            Random rand = new Random();
+            int lot =0;
+            while (done == false) {
+                lot = rand.nextInt(200);
+                if (Parkhauss.lots[lot] != null || SpaceServlet.parkplatz.getSpace(lot).isAvailable() == false) {
+                    continue;
+                }
+                done = true;
+            }
+            return lot ;
+        }
+
     }
 }

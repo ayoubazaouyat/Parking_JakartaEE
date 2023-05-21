@@ -36,6 +36,7 @@ public class Visualisation  extends HttpServlet{
                         "            margin: 0;\n" +
                         "            padding: 0;\n" +
                         "            overflow: hidden;" +
+                        "            position: relative;" +
                         "        }\n" +
                         "        }\n" +
                         "        car {" +
@@ -62,6 +63,10 @@ public class Visualisation  extends HttpServlet{
                         "\n" +
                         "        .occupied {\n" +
                         "            background-color: #e74c3c;\n" +
+                        "        }\n" +
+
+                        "        .reserved {\n" +
+                        "            background-color: #f27618;\n" +
                         "        }\n" +
                         "  .corner {\n" +
                         "            position: fixed;\n" +
@@ -128,10 +133,13 @@ public class Visualisation  extends HttpServlet{
                     if (Parkhauss.lots[i1] != null) {
                         occ = "occupied";
                         car = Parkhauss.lots[i1];
-                    } else {
+                    } else if (SpaceServlet.parkplatz.getSpace(i1).isAvailable()){
                         occ = "";
                         car = "";
 
+                    } else {
+                        occ = "reserved";
+                        car = "";
                     }
                     out.println("        <div class=\"spot " + occ +" \"> "+ i1  +"<div class= \"car\" " +
                             "style = \"text-align: center; margin-top: 0; font-size: 11px;\">"+ car +  "</div>" +" </div>\n");
