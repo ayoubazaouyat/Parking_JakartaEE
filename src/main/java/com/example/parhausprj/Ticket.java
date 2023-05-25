@@ -27,6 +27,7 @@ public class Ticket {
     }
 
     int place ;
+    static double totalSales = 0.0;
 
 
     public int getTicketNummer() {
@@ -67,10 +68,14 @@ public class Ticket {
             bezahlt = true;
             Offnungzeitenservlet.Freeplaces++;
             price = this.ticketPrice*dauer;
+            totalSales+=rounded(price);
 
             Parkhauss.lots[this.place] = null ; // empty parking place
             return rounded(price);
         }
+    }
+    public static double getTotalSales() {
+        return totalSales;
     }
 
 
