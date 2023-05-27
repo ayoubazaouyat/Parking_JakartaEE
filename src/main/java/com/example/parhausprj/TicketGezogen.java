@@ -5,7 +5,8 @@ public class TicketGezogen extends State implements StatesInt{
     @Override
     public State bezahle(Ticket t) {
         double dauer = t.ticketValidieren();
-            t.setPrice(t.getTicketPrice()*dauer);
+        //ss
+        t.setPrice(t.getTicketPrice()*dauer);
         return new TicketBezahlt();
 
     }
