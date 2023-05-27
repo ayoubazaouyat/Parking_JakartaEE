@@ -38,7 +38,7 @@ public class VerlasseServlet extends HttpServlet{
             //  Ticket ticket = new Ticket(1234, "ABC-123", 10.0);
             for(Ticket i:TicketResponse.tickets){
 
-                if(i.getAutoNummer().equals(autonummer)) {
+                if(i.getAutoNummer().equals(autonummer) && i.isOut() == false) {
                     ticketnummer=i.getTicketNummer();
                     i.verlasse();
                     out.println("<html><body>");

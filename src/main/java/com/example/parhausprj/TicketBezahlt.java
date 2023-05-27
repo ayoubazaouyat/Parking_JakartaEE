@@ -27,6 +27,7 @@ public class TicketBezahlt extends State {
             t.setAustrittszeit(new Date());
             Offnungzeitenservlet.Freeplaces++;
             Parkhauss.lots[t.place] = null ; // empty parking place
+            t.setOut(true);
             return new Ausgefahren();
         }
     }

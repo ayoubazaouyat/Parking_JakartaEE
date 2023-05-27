@@ -24,7 +24,7 @@ public class TicketResponse extends HttpServlet{
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         for(Ticket ticket : tickets) {
-            if (ticket.getAutoNummer().equals(request.getParameter("matrikulNummer")) && ticket.bezahlt == false ) {
+            if (ticket.getAutoNummer().equals(request.getParameter("matrikulNummer")) && ticket.isOut() == false ) {
                 stop = true;
             }
         }

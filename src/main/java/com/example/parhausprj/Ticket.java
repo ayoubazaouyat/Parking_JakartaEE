@@ -18,6 +18,10 @@ public class Ticket {
     double nachzahlung = 0;
     boolean bezahlt = false ;
     int place ;
+
+
+
+    boolean out = false;
     static double totalSales = 0.0;
 
 
@@ -34,7 +38,13 @@ public class Ticket {
     }
 
 
+    public boolean isOut() {
+        return out;
+    }
 
+    public void setOut(boolean out) {
+        this.out = out;
+    }
 
     public int getTicketNummer() {
         return ticketNummer;
