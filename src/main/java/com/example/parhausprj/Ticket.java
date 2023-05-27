@@ -18,6 +18,8 @@ public class Ticket {
     double nachzahlung = 0;
     boolean bezahlt = false ;
     int place ;
+    static double totalSales = 0.0;
+
 
 
     double price = 0;
@@ -58,7 +60,7 @@ public class Ticket {
     public double bezahlen() {
 
         this.state = state.bezahle(this);
-
+        totalSales+=rounded(price);
         return rounded(price);
     }
 
@@ -147,5 +149,8 @@ public class Ticket {
 
     public void setAustrittszeit(Date austrittszeit) {
         this.austrittszeit = austrittszeit;
+    }
+    public static double getTotalSales() {
+        return totalSales;
     }
 }
