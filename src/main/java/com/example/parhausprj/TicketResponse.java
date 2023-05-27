@@ -32,7 +32,7 @@ public class TicketResponse extends HttpServlet{
             out.println("<p> You are already inside! <p>");
         } else {
             tickets.add(new Ticket(++ticketNumber,request.getParameter("matrikulNummer"),PriceServlet.ticketPrice));
-            Date date = tickets.get(ticketNumber-1).ticketZiehen();
+            Date date = tickets.get(ticketNumber-1).getEintrittszeit();
             int place = chooseLot(tickets.get(ticketNumber - 1).getAutoNummer());
             Parkhauss.lots[place] = tickets.get(ticketNumber - 1).getAutoNummer();
             tickets.get(ticketNumber-1).setPlace(place);

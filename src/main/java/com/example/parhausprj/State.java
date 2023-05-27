@@ -1,19 +1,8 @@
 package com.example.parhausprj;
 
-public class State implements StatesInt{
+public abstract class State implements StatesInt{
 
-    @Override
-    public State bezahle(Ticket t) {
-        return null;
-    }
-
-    @Override
-    public State verliere(Ticket t) {
-        return null;
-    }
-
-    @Override
-    public State verlasse(Ticket t) {
-        return null;
+    public double rounded(double value) {
+        return (double)Math.round(value * 100d) / 100d;
     }
 }

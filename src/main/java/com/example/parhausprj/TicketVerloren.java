@@ -1,6 +1,6 @@
 package com.example.parhausprj;
 
-public class TicketVerloren extends State implements StatesInt{
+public class TicketVerloren extends State {
     @Override
     public State bezahle(Ticket t) {
         t.setPrice(t.getPrice()+t.getVerlustGeb());

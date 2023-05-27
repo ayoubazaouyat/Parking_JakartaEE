@@ -61,7 +61,7 @@ public class Ticket {
 
         this.state = state.bezahle(this);
         totalSales+=rounded(price);
-        return rounded(price);
+        return price;
     }
 
 

@@ -126,6 +126,7 @@
   <a href="ticket-servlet"><button>Get a Ticket</button></a>
   <a href="hello-servlet"><button>Pay for your Ticket</button></a>
   <a href="verlust-servlet"><button>Lost your Ticket?</button></a>
+  <a href="verlasse-servlet"><button>Leave Parking House</button></a>
   <a href="platz-servlet"><button>Reserve a parking space?</button></a>
 
 </div>

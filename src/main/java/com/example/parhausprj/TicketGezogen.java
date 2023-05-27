@@ -1,12 +1,12 @@
 package com.example.parhausprj;
 
-public class TicketGezogen extends State implements StatesInt{
+public class TicketGezogen extends State {
 
     @Override
     public State bezahle(Ticket t) {
         double dauer = t.ticketValidieren();
         //ss
-        t.setPrice(t.getTicketPrice()*dauer);
+        t.setPrice(rounded(t.getTicketPrice()*dauer));
         return new TicketBezahlt();
 
     }

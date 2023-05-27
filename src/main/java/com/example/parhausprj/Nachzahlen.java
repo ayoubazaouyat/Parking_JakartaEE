@@ -1,6 +1,6 @@
 package com.example.parhausprj;
 
-public class Nachzahlen  extends State implements StatesInt{
+public class Nachzahlen  extends State {
 
     @Override
     public State bezahle(Ticket t) {
