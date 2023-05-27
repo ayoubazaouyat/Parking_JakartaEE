@@ -66,6 +66,8 @@
         </form>
         <h2>Parking House Visualisation</h2>
         <a href="visualisation"><button type="submit"> Visualisation </button></a>
+        <h2>Total sales of Parkhaus 404</h2>
+        <a href="TotalSales-servlet"><button type="submit">Total Sales</button></a>
     </div>
     <div class="column" style="background-color:#FFF2CC;">
         <h2>Update the price of the Ticket:</h2>
