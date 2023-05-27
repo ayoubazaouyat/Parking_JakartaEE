@@ -1,7 +1,6 @@
 package com.example.parhausprj;
 
 import java.util.Date;
-import java.util.Random;
 
 public class Ticket {
     int ticketNummer ;
@@ -14,9 +13,15 @@ public class Ticket {
     public double ticketPrice;
     public Date eintrittszeit;
     public Date austrittszeit;
-    boolean verloren;
-    double verlustGeb= 50.0;
+    public Date bezahlzeit;
+    double verlustGeb= 0;
+    double nachzahlung = 0;
     boolean bezahlt = false ;
+    int place ;
+
+
+    double price = 0;
+    State state = new TicketGezogen();
 
     public int getPlace() {
         return place;
@@ -26,7 +31,7 @@ public class Ticket {
         this.place = place;
     }
 
-    int place ;
+
 
 
     public int getTicketNummer() {
@@ -34,10 +39,11 @@ public class Ticket {
     }
 
     public Ticket(int ticketNummer, String autoNummer, double ticketPrice) {
-        this.verloren = false;
         this.ticketPrice = ticketPrice;
         this.ticketNummer = ticketNummer;
         this.autoNummer = autoNummer;
+        this.state = new TicketGezogen();
+        this.ticketZiehen();
     }
 
     public void setTicketPrice(double ticketPrice) {
@@ -50,27 +56,10 @@ public class Ticket {
 
 
     public double bezahlen() {
-        double dauer = this.ticketValidieren();
-        double price ;
-        if (bezahlt) {
-            throw new IllegalStateException("You already paid your ticket!");
-        }
-        if(verloren) {
-            bezahlt = true;
-            Offnungzeitenservlet.Freeplaces++;
-            price = (this.ticketPrice*dauer)+ verlustGeb;
 
-            Parkhauss.lots[this.place] = null ; // empty parking place
+        this.state = state.bezahle(this);
 
-            return rounded(price) ;
-        } else {
-            bezahlt = true;
-            Offnungzeitenservlet.Freeplaces++;
-            price = this.ticketPrice*dauer;
-
-            Parkhauss.lots[this.place] = null ; // empty parking place
-            return rounded(price);
-        }
+        return rounded(price);
     }
 
 
@@ -102,8 +91,8 @@ public class Ticket {
         if (eintrittszeit == null) {
             throw new IllegalStateException("Eintrittszeit wurde nicht gesetzt.");
         }
-        austrittszeit = new Date();
-        long parkdauerInMillisekunden = austrittszeit.getTime() - eintrittszeit.getTime();
+        bezahlzeit = new Date();
+        long parkdauerInMillisekunden = bezahlzeit.getTime() - eintrittszeit.getTime();
         double parkdauerInStunden = (parkdauerInMillisekunden / (60.0 * 60.0 * 1000.0)); // Umrechnung von Millisekunden in Stunden
         // weitere Schritte, um das Ticket zu validieren und den Preis zu berechnen
         return parkdauerInStunden;
@@ -112,7 +101,10 @@ public class Ticket {
 
 
     public void verloren() {
-        this.verloren = true;
+        this.state = state.verliere(this);
+    }
+    public void verlasse() {
+        this.state = state.verlasse(this);
     }
     public double getTicketPrice() {
         return this.ticketPrice;
@@ -125,14 +117,35 @@ public class Ticket {
     public Date getEintrittszeit() {
         return eintrittszeit;
     }
-
-    public boolean isVerloren() {
-        return verloren;
+    public Date getBezahlzeit() {
+        return bezahlzeit;
     }
+
 
     public double rounded(double value) {
         return (double)Math.round(value * 100d) / 100d;
     }
+    public void setPrice(double price) {
+        this.price = price;
+    }
 
+    public void setVerlustGeb(double verlustGeb) {
+        this.verlustGeb = verlustGeb;
+    }
 
+    public double getNachzahlung() {
+        return nachzahlung;
+    }
+
+    public void setNachzahlung(double nachzahlung) {
+        this.nachzahlung = nachzahlung;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setAustrittszeit(Date austrittszeit) {
+        this.austrittszeit = austrittszeit;
+    }
 }

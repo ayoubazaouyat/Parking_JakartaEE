@@ -43,7 +43,9 @@ public class TicketResponse extends HttpServlet{
                     " has beem succesfully submitted at "+ date+ " with Registration number "+ tickets.get(ticketNumber-1).getAutoNummer()+
                     "lot number : "+ place +"</p>");
             out.println("</body></html>");
+
         }
+
     }
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException , IOException {

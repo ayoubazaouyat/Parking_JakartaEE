@@ -1,6 +1,4 @@
 package com.example.parhausprj;
-import com.example.parhausprj.Ticket;
-import com.example.parhausprj.TicketResponse;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,12 +6,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Date;
 
 @WebServlet(name = "helloServlet", value = "/hello-servlet")
 public class HelloServlet extends HttpServlet {
     private String message = "Pay your ticket";
-    private double price = 10.0;
+    public  static double  price = 0;
 
     public void init() {
 
@@ -126,7 +123,7 @@ public class HelloServlet extends HttpServlet {
                 out.println("<h1>Payment Successful</h1>");
                 out.println("<p>Ticket Number: " + ticketNumber + "</p>");
                 out.println("<p>Eintrittzeit: " + ticket.eintrittszeit + "</p>");
-                out.println("<p>Austrittzeit: " + ticket.austrittszeit + "</p>");
+                out.println("<p>Austrittzeit: " + ticket.bezahlzeit + "</p>");
                 out.println("<p>Amount Charged: " + price + "<span>&#8364;</span> </p>");
                 out.println("<button onclick=\"window.location.href='index.jsp'\">Back to Home</button>");
                 out.println("<button onclick=\"printReceipt()\">Print Receipt</button>"); 
