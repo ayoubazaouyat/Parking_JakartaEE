@@ -103,11 +103,10 @@ public class Verlust extends HttpServlet {
             if(i.getAutoNummer().equals(autonummer)) {
                 ticketnummer=i.getTicketNummer();
                 i.verloren();
-                double price = i.bezahlen();
                 out.println("<html><body>");
-                out.println("<h1>Payment Successful</h1>");
+                out.println("<h1>Found it !</h1>");
                 out.println("<p>Ticket Number: " +ticketnummer+ "</p>");
-                out.println("<p>Amount Charged: " + price + "<span>&#8364;</span> </p>");
+                out.println("<p>Amount added: " + "30" + "<span>&#8364;</span> </p>" );
 
                 out.println("</body></html>");
             }

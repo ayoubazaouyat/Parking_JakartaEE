@@ -3,7 +3,13 @@ package com.example.parhausprj;
 public class TicketVerloren extends State {
     @Override
     public State bezahle(Ticket t) {
-        t.setPrice(t.getPrice()+t.getVerlustGeb());
+        if (t.getPrice() == 0.0) {
+            double dauer = t.ticketValidieren();
+            t.setPrice(rounded((t.getTicketPrice()*dauer)+t.getVerlustGeb()));
+        } else {
+            t.setPrice(t.getPrice()+t.getVerlustGeb());
+        }
+
         return new TicketBezahlt();
     }
 
