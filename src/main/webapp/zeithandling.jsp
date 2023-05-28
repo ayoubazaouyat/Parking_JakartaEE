@@ -109,7 +109,7 @@
         <div class="actions-row">
             <form action="zeithandling" method="post">
                 <input type="hidden" name="action" value="reset">
-                <button type="submit">Zeit zurücksetzen</button>
+                <button type="submit">reset time</button>
             </form>
 
             <form action="zeithandling" method="post">
@@ -132,7 +132,7 @@
             <input type="hidden" name="action" value="timewarp">
             <label for="time">Neue Zeit:</label>
             <input type="datetime-local" id="time" name="time" required>
-            <button type="submit">Zeit vorwärts bewegen</button>
+            <button type="submit">move time forward</button>
         </form>
 
         <div class="back-btn-container">
