@@ -1,6 +1,8 @@
 package com.example.parhausprj;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Ticket {
     int ticketNummer ;
@@ -19,7 +21,7 @@ public class Ticket {
     boolean bezahlt = false ;
     int place ;
 
-
+    private static List<Ticket> allTickets = new ArrayList<>();
 
     boolean out = false;
     static double totalSales = 0.0;
@@ -56,6 +58,10 @@ public class Ticket {
         this.autoNummer = autoNummer;
         this.state = new TicketGezogen();
         this.ticketZiehen();
+        allTickets.add(this);
+    }
+    public static List<Ticket> getAllTickets() {
+        return allTickets;
     }
 
     public void setTicketPrice(double ticketPrice) {
