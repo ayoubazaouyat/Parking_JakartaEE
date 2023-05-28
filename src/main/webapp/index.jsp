@@ -140,9 +140,23 @@
   <a href="https://form.jotform.com/231312960388053" rel="nofollow">
     <img src="https://www.jotform.com/uploads/Parkhaus404services/form_files/231312960388053_1683927497_qrcode_muse.png" width="100%" style="max-width: 200px" alt="QR Code for Jotform form">
   </a>
-  <h3>Scan it to Giv us a Feedback</h3>
+  <h3>Scan it to Give us a Feedback</h3>
 </div>
-
+<form action="zeithandling" method="post" onsubmit="initParkhaus()">
+    <button type="submit">Zeithandling</button>
+</form>
+<script>
+    function initParkhaus() {
+        var currentTime = new Date(); // Aktuelle Zeit abrufen
+        var timeString = currentTime.toISOString().split('.')[0]; // Zeitformat erstellen (Jahr-Monat-Tag Stunden:Minuten:Sekunden)
+        var hiddenInput = document.createElement('input'); // Ein ausgeblendeten Eingabefeld erstellen
+        hiddenInput.type = 'hidden'; // Den Eingabetyp auf "hidden" setzen
+        hiddenInput.name = 'currentTime'; // Den Namen des Eingabefelds festlegen
+        hiddenInput.value = timeString; // Die aktuelle Zeit als Wert festlegen
+        this.form.appendChild(hiddenInput); // Das Eingabefeld zum Formular hinzufügen
+        return true; // Das Formular senden
+    }
+</script>
 
 
 </body>
