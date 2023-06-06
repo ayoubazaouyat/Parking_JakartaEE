@@ -9,20 +9,14 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-import static com.example.parhausprj.TicketResponse.tickets;
-
 @WebServlet(name = "TotalSalesServlet", value = "/TotalSales-servlet")
 public class TotalSalesServlet extends HttpServlet {
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
-        List<Ticket> tickets = Ticket.getAllTickets();
 
 
-        double totalSales = Ticket.getTotalSales();
-        ;
         response.setContentType("text/html");
         out.println("<html><body>");
         out.println("<style>\n" +
@@ -32,30 +26,47 @@ public class TotalSalesServlet extends HttpServlet {
                 "            margin: 0;\n" +
                 "            padding: 0;\n" +
                 "        }\n" +
-
+                "        table {\n" +
+                "            border-collapse: collapse;\n" +
+                "            width: 100%;\n" +
+                "        }\n" +
+                "        th, td {\n" +
+                "            text-align: left;\n" +
+                "            padding: 8px;\n" +
+                "            border-bottom: 1px solid #ddd;\n" +
+                "        }\n" +
                 "    </style>");
         out.println("<div style=\"text-align:center;\">");
-        response.getWriter().println("<h1><center><B> Total Sales: " + totalSales + "euro</B></center></h1>");
 
+        response.getWriter().println("<h1><center><B>Ticket-information</B></center></h1>");
+        out.println("<button onclick=\"window.location.href='?sort=true'\">Sortieren</button>");
+        out.println("<button onclick=\"window.location.href='?sort=false'\">Reset</button>");
+        out.println("<table>");
+        out.println("<tr><th>Ticket Number</th><th>Eintrittzeit</th><th>Austrittzeit</th><th>Amount Charged</th></tr>");
 
-        for (Ticket i : tickets) {
-            if(i.getBezahlzeit()!=null) {
-                out.println("<html><body>");
-                out.println("<p>Ticket Number: " + i.getTicketNummer());
-                out.println("<p>Eintrittzeit: " + i.eintrittszeit);
-                out.println("<p>Austrittzeit: " + i.bezahlzeit);
-                out.println("<p>Amount Charged: " + i.getPrice() + "<span>&#8364;</span> </p>");
-                out.println("</body></html>");
-            }
-        }
+        // Check if the 'sort' parameter is present in the URL and set to 'true'
+        boolean sortTable = Boolean.parseBoolean(request.getParameter("sort"));
+
+        List<Ticket> tickets = Ticket.getAllTickets();
+        List<Ticket> sortedTickets = sortTable ? Ticket.getSortedTicketsByPriceDescending() : tickets;
+        double totalTicketPrice = sortedTickets.stream()
+                .mapToDouble(Ticket::getPrice)
+                .sum();
+        sortedTickets.forEach(ticket -> {
+            out.println("<tr>");
+            out.println("<td>" + ticket.getTicketNummer() + "</td>");
+            out.println("<td>" + ticket.getEintrittszeit() + "</td>");
+            out.println("<td>" + ticket.getBezahlzeit() + "</td>");
+            out.println("<td>" + ticket.getPrice() + "<span>&#8364;</span></td>");
+            out.println("</tr>");
+        });
+        out.println("</table>");
+        response.getWriter().println("<h1><center><B> Total Sales: " + totalTicketPrice+ "euro</B></center></h1>");
         out.println("<button onclick=\"window.location.href='index.jsp'\">Back to Home</button>");
         out.println("</div>");
         out.println("</body></html>");
-
-
-
-
     }
+
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
