@@ -3,7 +3,7 @@ package com.example.parhausprj;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
+import java.util.stream.Collectors;
 public class Ticket {
     int ticketNummer ;
 
@@ -168,5 +168,13 @@ public class Ticket {
     }
     public static double getTotalSales() {
         return totalSales;
+    }
+     public static List<Ticket> getSortedTicketsByPriceDescending() {
+        List<Ticket> tickets = getAllTickets();
+        return tickets.stream()
+                .filter(ticket -> ticket.getBezahlzeit() != null)
+                .sorted((ticket1, ticket2) -> Double.compare(ticket2.getPrice(), ticket1.getPrice()))
+                .collect(Collectors.toList());
+
     }
 }
