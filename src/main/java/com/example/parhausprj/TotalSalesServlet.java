@@ -71,7 +71,48 @@ public class TotalSalesServlet extends HttpServlet {
         
         out.println("<p>Average Price : " + paidAvg + "<span>&#8364;</span> </p>");
         out.println("<p>Percentage Paid : " + paidPer + "% </p>");
-        response.getWriter().println("<h1><center><B> Total Sales: " + totalTicketPrice+ "euro</B></center></h1>");
+        response.getWriter().println("<h1><center><B> Total Sales: " + totalTicketPrice+ "€</B></center></h1>");
+        List<Ticket> paidTickets = Ticket.getPaidTickets();
+        List<Ticket> unpaidTickets = Ticket.getunPaidTickets();
+        out.println("<html><body>");
+        out.println("<h2>Bezahlte Ticketliste</h2>");
+
+        out.println("<table>");
+        out.println("<tr>");
+        out.println("<th>Ticketnummer</th>");
+        out.println("<th>Preis</th>");
+        out.println("</tr>");
+
+        paidTickets.forEach(ticket -> {
+            out.println("<tr>");
+            out.println("<td>" + ticket.getTicketNummer() + "</td>");
+            out.println("<td>" + ticket.getPrice() + "<span>&#8364;</span></td>");
+            out.println("</tr>");
+        });
+
+        out.println("</table>");
+
+        out.println("</body></html>");
+        out.println("<html><body>");
+        out.println("<h2>Unbezahlte Ticketliste</h2>");
+
+        out.println("<table>");
+        out.println("<tr>");
+        out.println("<th>Ticketnummer</th>");
+        out.println("<th>Preis</th>");
+        out.println("</tr>");
+
+        unpaidTickets.forEach(ticket -> {
+            out.println("<tr>");
+            out.println("<td>" + ticket.getTicketNummer() + "</td>");
+            out.println("<td>" + ticket.getPrice() + "<span>&#8364;</span></td>");
+            out.println("</tr>");
+        });
+
+        out.println("</table>");
+
+        out.println("</body></html>");
+
         out.println("<button onclick=\"window.location.href='index.jsp'\">Back to Home</button>");
         out.println("</div>");
         out.println("</body></html>");

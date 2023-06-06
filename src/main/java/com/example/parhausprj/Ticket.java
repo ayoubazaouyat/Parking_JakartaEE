@@ -195,4 +195,16 @@ public class Ticket {
                 .filter(ticket -> ticket.getState() instanceof com.example.parhausprj.TicketVerloren)
                 .collect(Collectors.toList());
     }
+    public static List<Ticket> getPaidTickets() {
+        List<Ticket> tickets = getAllTickets();
+        return tickets.stream()
+                .filter(ticket -> ticket.getBezahlzeit() != null)
+                .collect(Collectors.toList());
+    }
+    public static List<Ticket> getunPaidTickets() {
+        List<Ticket> tickets = getAllTickets();
+        return tickets.stream()
+                .filter(ticket -> ticket.getBezahlzeit() == null)
+                .collect(Collectors.toList());
+    }
 }
