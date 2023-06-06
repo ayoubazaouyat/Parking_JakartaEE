@@ -65,6 +65,14 @@ public class TotalSalesServlet extends HttpServlet {
         });
         out.println("</table>");
         response.getWriter().println("<h1><center><B> Total Sales: " + totalTicketPrice+ "euro</B></center></h1>");
+        double paidAvg = TicketResponse.tickets.stream().filter(x -> x.getState() instanceof com.example.parhausprj.TicketBezahlt).map(x -> x.getPrice()).reduce(0.0,(x,y) -> y + x )
+                        / TicketResponse.tickets.stream().filter(x -> x.getState() instanceof com.example.parhausprj.TicketBezahlt).count();
+        double paidPer = ((double) TicketResponse.tickets.stream().filter(x -> x.getState() instanceof com.example.parhausprj.TicketBezahlt).count()
+                / (double) TicketResponse.tickets.stream().count()) * 100. ;
+        out.println(TicketResponse.tickets.stream().filter(x -> x.getState() instanceof com.example.parhausprj.TicketBezahlt).count());
+        out.println(TicketResponse.tickets.stream().count());
+        out.println("<p>Average Price : " + paidAvg + "<span>&#8364;</span> </p>");
+        out.println("<p>Percentage Paid : " + paidPer + "% </p>");
         out.println("<button onclick=\"window.location.href='index.jsp'\">Back to Home</button>");
         out.println("</div>");
         out.println("</body></html>");
