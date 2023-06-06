@@ -139,6 +139,16 @@ public class Ticket {
         return bezahlzeit;
     }
 
+    // get the state of Tickets
+    public State getState() {
+        return state;
+    }
+
+    public void setState(State state) {
+        this.state = state;
+    }
+
+
 
     public double rounded(double value) {
         return (double)Math.round(value * 100d) / 100d;
@@ -176,5 +186,13 @@ public class Ticket {
                 .sorted((ticket1, ticket2) -> Double.compare(ticket2.getPrice(), ticket1.getPrice()))
                 .collect(Collectors.toList());
 
+    }
+
+    public static List<Ticket> getTicketsByState() {
+        List<Ticket> tickets = getAllTickets();
+
+        return tickets.stream()
+                .filter(ticket -> ticket.getState() instanceof com.example.parhausprj.TicketVerloren)
+                .collect(Collectors.toList());
     }
 }

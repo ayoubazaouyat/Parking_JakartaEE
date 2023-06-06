@@ -42,7 +42,7 @@ public class TotalSalesServlet extends HttpServlet {
         out.println("<button onclick=\"window.location.href='?sort=true'\">Sortieren</button>");
         out.println("<button onclick=\"window.location.href='?sort=false'\">Reset</button>");
         out.println("<table>");
-        out.println("<tr><th>Ticket Number</th><th>Eintrittzeit</th><th>Austrittzeit</th><th>Amount Charged</th></tr>");
+        out.println("<tr><th>Ticket Number</th><th>Eintrittzeit</th><th>Austrittzeit</th><th>Verloren ?</th><th>Amount Charged</th></tr>");
 
         // Check if the 'sort' parameter is present in the URL and set to 'true'
         boolean sortTable = Boolean.parseBoolean(request.getParameter("sort"));
@@ -52,11 +52,14 @@ public class TotalSalesServlet extends HttpServlet {
         double totalTicketPrice = sortedTickets.stream()
                 .mapToDouble(Ticket::getPrice)
                 .sum();
+        List<Ticket> lostTickets = Ticket.getTicketsByState();
         sortedTickets.forEach(ticket -> {
             out.println("<tr>");
             out.println("<td>" + ticket.getTicketNummer() + "</td>");
             out.println("<td>" + ticket.getEintrittszeit() + "</td>");
             out.println("<td>" + ticket.getBezahlzeit() + "</td>");
+            boolean isLost = lostTickets.contains(ticket);
+            out.println("<td>" + isLost + "</td>");
             out.println("<td>" + ticket.getPrice() + "<span>&#8364;</span></td>");
             out.println("</tr>");
         });
