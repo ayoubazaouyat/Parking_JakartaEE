@@ -6,11 +6,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 public class Ticket {
     int ticketNummer ;
-
-    public String getAutoNummer() {
-        return autoNummer;
-    }
-
     String autoNummer;
     public double ticketPrice;
     public Date eintrittszeit;
@@ -20,16 +15,15 @@ public class Ticket {
     double nachzahlung = 0;
     boolean bezahlt = false ;
     int place ;
-
     private static List<Ticket> allTickets = new ArrayList<>();
-
     boolean out = false;
     static double totalSales = 0.0;
-
-
-
     double price = 0;
     State state = new TicketGezogen();
+
+    public String getAutoNummer() {
+        return autoNummer;
+    }
 
     public int getPlace() {
         return place;
