@@ -31,13 +31,12 @@ public class Parkplatz {
         return parkingSpaces.get(i);
     }
 
-
-
     public void releaseParkingSpace(ParkingSpace parkingSpace) {
         parkingSpace.setAvailable(true);
+        parkingSpace.setAutonummer(null);
     }
 
-    class ParkingSpace {
+    public class ParkingSpace {
 
 
 

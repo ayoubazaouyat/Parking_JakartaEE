@@ -170,6 +170,9 @@ public class Ticket {
     public void setAustrittszeit(Date austrittszeit) {
         this.austrittszeit = austrittszeit;
     }
+    public void setEintrittszeit(Date eintrittszeit) {this.eintrittszeit= eintrittszeit;}
+
+    public void setBezahlzeit(Date bezahlzeit) { this.bezahlzeit = bezahlzeit;}
     public static double getTotalSales() {
         return totalSales;
     }
@@ -201,4 +204,5 @@ public class Ticket {
                 .filter(ticket -> ticket.getBezahlzeit() == null)
                 .collect(Collectors.toList());
     }
+
 }
