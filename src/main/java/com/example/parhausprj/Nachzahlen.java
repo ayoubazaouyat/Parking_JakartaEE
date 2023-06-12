@@ -22,7 +22,7 @@ public class Nachzahlen  extends State {
     @Override
     public State verlasse(Ticket t) {
 
-            throw new IllegalStateException("You have to pay extra fees");
+        throw new IllegalStateException("You have to pay the extra fees first");
     }
 
 }

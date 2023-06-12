@@ -15,7 +15,8 @@ public class TestParkplatz {
     }
 
     @Test
-    public void testReserveParkingSpace_WhenSpaceAvailable() {
+    @DisplayName("Test ReserveParkingSpace() : Should reserve a place if it' available")
+    public void testReserveParkingSpace() {
         String autonummer = "AA-AA-0000";
         int spaceNumber = 1;
 
@@ -28,7 +29,8 @@ public class TestParkplatz {
     }
 
     @Test
-    public void testReserveParkingSpace_WhenSpaceUnavailable() {
+    @DisplayName("Test ReserveParkingSpace() : Should not reserve a place when it's not free")
+    public void testReserveParkingSpace2() {
         String autonummer1 = "AA-AA-0000";
         String autonummer2 = "AA-AA-0001";
         int spaceNumber = 1;
@@ -41,6 +43,7 @@ public class TestParkplatz {
     }
 
     @Test
+    @DisplayName("Test ReleaseParkingSpace() : Should make a place available again when it's no more reserved")
     public void testReleaseParkingSpace() {
         String autonummer = "AA-AA-0000";
         int spaceNumber = 1;
@@ -53,6 +56,7 @@ public class TestParkplatz {
     }
 
     @Test
+    @DisplayName("Test GetSpace() : Should get a parking place")
     public void testGetSpace() {
         int spaceNumber = 1;
 

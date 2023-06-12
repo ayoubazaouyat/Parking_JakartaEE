@@ -16,6 +16,8 @@ public class TestNachzahlen {
     }
 
     @Test
+    @DisplayName("Test Bezahle() : Should pay extra fees if the customer stays longer than 30 min")
+
     public void testBezahle() {
 
         ticket.setBezahlzeit(new Date());
@@ -30,6 +32,8 @@ public class TestNachzahlen {
     }
 
     @Test
+    @DisplayName("Test Verliere() : Should pay the extra fees for loosing the ticket")
+
     public void testVerliere() {
 
         double initialVerlustGeb = ticket.getVerlustGeb();
@@ -43,6 +47,7 @@ public class TestNachzahlen {
     }
 
     @Test
+    @DisplayName("Test Verlasse() : Should throw an exception to pay the extra fees befor leaving")
     public void testVerlasse() {
 
 
