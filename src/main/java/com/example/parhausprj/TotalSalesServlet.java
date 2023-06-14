@@ -19,63 +19,7 @@ public class TotalSalesServlet extends HttpServlet {
         out.println("<html>");
         out.println("<head>");
         out.println("<title>Ticket Information</title>");
-        out.println("<style>");
-        out.println("body {");
-        out.println("    font-family: Arial, sans-serif;");
-        out.println("    background-color: #FFEBB3;");
-        out.println("    margin: 0;");
-        out.println("    padding: 0;");
-        out.println("}");
-
-        out.println("h1 {");
-        out.println("    text-align: center;");
-        out.println("    margin-top: 30px;");
-        out.println("}");
-
-        out.println("table {");
-        out.println("    width: 80%;");
-        out.println("    margin: 30px auto;");
-        out.println("    border-collapse: collapse;");
-        out.println("    background-color: #fff;");
-        out.println("    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);");
-        out.println("}");
-
-        out.println("th, td {");
-        out.println("    padding: 12px 15px;");
-        out.println("    text-align: left;");
-        out.println("    border-bottom: 1px solid #ddd;");
-        out.println("}");
-
-        out.println("th {");
-        out.println("    background-color: #f9f9f9;");
-        out.println("}");
-
-        out.println("td:last-child {");
-        out.println("    text-align: center;");
-        out.println("}");
-
-        out.println(".center {");
-        out.println("    text-align: center;");
-        out.println("    margin-top: 20px;");
-        out.println("}");
-
-        out.println(".button-container {");
-        out.println("    text-align: center;");
-        out.println("    margin-bottom: 20px;");
-        out.println("}");
-
-        out.println(".button-container button {");
-        out.println("    margin: 0 5px;");
-        out.println("    padding: 10px 15px;");
-        out.println("    font-size: 16px;");
-        out.println("    background-color: #4CAF50;");
-        out.println("    color: #fff;");
-        out.println("    border: none;");
-        out.println("    border-radius: 4px;");
-        out.println("    cursor: pointer;");
-        out.println("}");
-
-        out.println("</style>");
+        out.println(HelloServlet.style);
         out.println("</head>");
         out.println("<body>");
 
