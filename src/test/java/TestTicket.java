@@ -230,4 +230,17 @@ public class TestTicket {
         Date returnedAustrittszeit = ticket.austrittszeit;
         Assertions.assertEquals(austrittszeit, returnedAustrittszeit);
     }
+    @Test
+    @DisplayName("Test setTicketPricegr0() : Price must be positive.")
+    public void testSetTicketPricegr0() {
+        Assertions.assertThrows(IllegalArgumentException.class, () ->ticket.setTicketPrice(-12.0));
+    }
+    @Test
+    @DisplayName("Throws Exceptions if there is no free places .")
+    public void testTicketziehennfree() {
+        int tmp = Offnungzeitenservlet.Freeplaces;
+        Offnungzeitenservlet.Freeplaces = 0 ;
+        Assertions.assertThrows(IllegalStateException.class, () ->ticket.ticketZiehen());
+        Offnungzeitenservlet.Freeplaces = tmp;
+    }
 }
