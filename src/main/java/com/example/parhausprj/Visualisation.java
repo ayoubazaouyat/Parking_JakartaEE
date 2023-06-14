@@ -18,9 +18,7 @@ public class Visualisation  extends HttpServlet{
         car = "";
     }
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-        response.setHeader("Pragma", "no-cache");
-        response.setHeader("Expires", "0");
+        
 
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
