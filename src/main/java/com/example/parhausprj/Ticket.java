@@ -129,6 +129,9 @@ public class Ticket {
     public Date getEintrittszeit() {
         return eintrittszeit;
     }
+    public void setBezahlzeit(Date bezahlzeit) {
+        this.bezahlzeit = bezahlzeit;
+    }
     public Date getBezahlzeit() {
         return bezahlzeit;
     }
