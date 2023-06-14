@@ -1,32 +1,26 @@
-import com.example.parhausprj.*;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
+package com.example.parhausprj;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+
 
 public class TicketVerlorenTest {
 
     private Ticket ticket;
 
-    @BeforeEach
-    void setUp() {
-        ticket = new Ticket();
-    }
-
     @Test
     @DisplayName("Test TicketVerloren state - bezahle()")
     void testTicketVerlorenBezahle() {
         TicketVerloren ticketVerloren = new TicketVerloren();
-
+        ticket = new Ticket(1,"AA-AA-0000",10);
         ticket.setTicketPrice(10.0);
         double ticketValidierenResult = 1.5; // Replace with the expected result of ticketValidieren()
-        ticket.setPrice(0.0);
-        ticket.setVerlustGeb(20.0);
-
+        ticket.setVerlustGeb(35.0);
+        ticket.setPrice(ticket.getPrice()*ticketValidierenResult);
         State nextState = ticketVerloren.bezahle(ticket);
 
         Assertions.assertTrue(nextState instanceof TicketBezahlt);
-        Assertions.assertEquals(35.0, ticket.getPrice()); // Replace with the expected price calculation based on ticketValidierenResult, ticket.getTicketPrice(), and ticket.getVerlustGeb()
+        Assertions.assertEquals(35, ticket.getPrice());// Replace with the expected price calculation based on ticketValidierenResult, ticket.getTicketPrice(), and ticket.getVerlustGeb()
     }
 
     @Test
