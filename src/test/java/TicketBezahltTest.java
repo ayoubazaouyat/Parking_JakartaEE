@@ -37,7 +37,7 @@ public class TicketBezahltTest {
     @DisplayName("Test TicketBezahlt state - verlasse()")
     void testTicketBezahltVerlasse() {
         TicketBezahlt ticketBezahlt = new TicketBezahlt();
-        ticket.setBezahlzeit(new Date()); // Set the bezahlzeit field with a valid date
+        ticket.setBezahlzeit(myLocalDate.myCurrentTime()); // Set the bezahlzeit field with a valid date
         ticket.setOut(false);
         int initialFreePlaces = Offnungzeitenservlet.Freeplaces;
         Parkhauss.lots[ticket.getPlace()] = String.valueOf(ticket);

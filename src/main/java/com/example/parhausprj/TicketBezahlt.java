@@ -1,5 +1,7 @@
 package com.example.parhausprj;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class TicketBezahlt extends State {
@@ -16,15 +18,17 @@ public class TicketBezahlt extends State {
 
     @Override
     public State verlasse(Ticket t) {
-        Date date = new Date();
-        double zwiscehnzeit = (date.getTime() - t.getBezahlzeit().getTime())/ (60.0 * 60.0 * 1000.0);
-        System.out.println(t.getBezahlzeit().getTime());
-        System.out.println(date.getTime());
-        System.out.println(zwiscehnzeit);
-        if (zwiscehnzeit > 0.5) {
+        LocalDateTime date = myLocalDate.myCurrentTime();
+        //double zwiscehnzeit = (date.getTime() - t.getBezahlzeit().getTime())/ (60.0 * 60.0 * 1000.0);
+        Duration zwischenzeit = Duration.between(t.getBezahlzeit(),date);
+        double duration = zwischenzeit.toHours()+ (double)zwischenzeit.toMinutes()/60.0 ;
+        System.out.println(t.getBezahlzeit());
+        System.out.println(date);
+        System.out.println(duration);
+        if (duration > 0.5) {
             return new Nachzahlen();
         }else {
-            t.setAustrittszeit(new Date());
+            t.setAustrittszeit(myLocalDate.myCurrentTime());
             Offnungzeitenservlet.Freeplaces++;
             Parkhauss.lots[t.place] = null ; // empty parking place
             t.setOut(true);

@@ -1,5 +1,7 @@
 package com.example.parhausprj;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -8,9 +10,9 @@ public class Ticket {
     int ticketNummer ;
     String autoNummer;
     public double ticketPrice;
-    public Date eintrittszeit;
-    public Date austrittszeit;
-    public Date bezahlzeit;
+    public LocalDateTime eintrittszeit;
+    public LocalDateTime austrittszeit;
+    public LocalDateTime bezahlzeit;
     double verlustGeb= 0;
     double nachzahlung = 0;
     boolean bezahlt = false ;
@@ -75,12 +77,12 @@ public class Ticket {
     }
 
 
-    public Date ticketZiehen() throws IllegalStateException {
+    public LocalDateTime ticketZiehen() throws IllegalStateException {
         boolean reserved = false;
         if(Offnungzeitenservlet.Freeplaces==0){
             throw new IllegalStateException("No free places anymore");
         }
-        eintrittszeit = new Date();
+        eintrittszeit = myLocalDate.myCurrentTime();
         for (int i = 0; i<200 ; i++){
             try {
                 if (SpaceServlet.parkplatz.getSpace(i).getAutonummer().equals(this.autoNummer) ) {
@@ -103,9 +105,10 @@ public class Ticket {
         if (eintrittszeit == null) {
             throw new IllegalStateException("Eintrittszeit wurde nicht gesetzt.");
         }
-        bezahlzeit = new Date();
-        long parkdauerInMillisekunden = bezahlzeit.getTime() - eintrittszeit.getTime();
-        double parkdauerInStunden = (parkdauerInMillisekunden / (60.0 * 60.0 * 1000.0)); // Umrechnung von Millisekunden in Stunden
+        bezahlzeit = myLocalDate.myCurrentTime();
+        double parkdauerInStunden = Duration.between(eintrittszeit,bezahlzeit).toHours()+ (double)(Duration.between(eintrittszeit,bezahlzeit).toMinutes()%60)/60.0;
+        System.out.println(parkdauerInStunden);
+        //double parkdauerInStunden = (parkdauerInMillisekunden / (60.0 * 60.0 * 1000.0)); // Umrechnung von Millisekunden in Stunden
         // weitere Schritte, um das Ticket zu validieren und den Preis zu berechnen
         return parkdauerInStunden;
     }
@@ -126,10 +129,10 @@ public class Ticket {
         return verlustGeb;
     }
 
-    public Date getEintrittszeit() {
+    public LocalDateTime getEintrittszeit() {
         return eintrittszeit;
     }
-    public Date getBezahlzeit() {
+    public LocalDateTime getBezahlzeit() {
         return bezahlzeit;
     }
 
@@ -167,12 +170,12 @@ public class Ticket {
         return price;
     }
 
-    public void setAustrittszeit(Date austrittszeit) {
+    public void setAustrittszeit(LocalDateTime austrittszeit) {
         this.austrittszeit = austrittszeit;
     }
-    public void setEintrittszeit(Date eintrittszeit) {this.eintrittszeit= eintrittszeit;}
+    public void setEintrittszeit(LocalDateTime eintrittszeit) {this.eintrittszeit= eintrittszeit;}
 
-    public void setBezahlzeit(Date bezahlzeit) { this.bezahlzeit = bezahlzeit;}
+    public void setBezahlzeit(LocalDateTime bezahlzeit) { this.bezahlzeit = bezahlzeit;}
     public static double getTotalSales() {
         return totalSales;
     }

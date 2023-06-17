@@ -38,15 +38,23 @@ public class VerlasseServlet extends HttpServlet{
             //  Ticket ticket = new Ticket(1234, "ABC-123", 10.0);
             for(Ticket i:TicketResponse.tickets){
 
-                if(i.getAutoNummer().equals(autonummer) && i.isOut() == false) {
-                    ticketnummer=i.getTicketNummer();
+                if((i.getAutoNummer().equals(autonummer) && i.isOut() == false)) {
                     i.verlasse();
-                    out.println("<html><body>");
-                    out.println("<h1>Successful!</h1>");
-                    out.println("<p>Ticket Number: " +ticketnummer+ "</p>");
-                    out.println("<p>Amount Charged: " + i.getPrice() + "<span>&#8364;</span> </p>");
-                    out.println("</body></html>");
+                    if ( i.getState() instanceof com.example.parhausprj.Ausgefahren) {
+                        ticketnummer=i.getTicketNummer();
+                        out.println("<html><body>");
+                        out.println("<h1>Successful!</h1>");
+                        out.println("<p>Ticket Number: " +ticketnummer+ "</p>");
+                        out.println("<p>Amount Charged: " + (i.getPrice()+i.getVerlustGeb()) + "<span>&#8364;</span> </p>");
+                        out.println("</body></html>");
+                    }
+                    if ((i.getState() instanceof com.example.parhausprj.Nachzahlen)) {
+                        ticketnummer=i.getTicketNummer();
+                        out.println("You stayed for too long pay the diff.");
+                    }
+
                 }
+
             }
             if(ticketnummer==0){
 

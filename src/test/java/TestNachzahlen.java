@@ -20,15 +20,17 @@ public class TestNachzahlen {
 
     public void testBezahle() {
 
-        ticket.setBezahlzeit(new Date());
-        ticket.setAustrittszeit(new Date(ticket.getBezahlzeit().getTime() + 1000)); // Set austrittszeit 1 second after bezahlzeit
+        /*ticket.setBezahlzeit(myLocalDate.myCurrentTime());
+        ticket.setAustrittszeit(ticket.getBezahlzeit().plusHours(1)); // Set austrittszeit 1 second after bezahlzeit
 
         Nachzahlen state = new Nachzahlen();
-        State nextState = state.bezahle(ticket);
-
-        double expectedPrice = ticket.getTicketPrice() * 1000; // the ticket price is per hour
-        Assertions.assertEquals(expectedPrice, ticket.getPrice(), 0.001);
-        Assertions.assertTrue(nextState instanceof Nachzahlen);
+        State nextState = state.bezahle(ticket);*/
+        ticket.ticketZiehen();
+        ticket.bezahlen();
+        myLocalDate.timewarp(50);
+        ticket.verlasse();
+        System.out.println(ticket.getState());
+        Assertions.assertTrue(ticket.getState() instanceof Nachzahlen);
     }
 
     @Test

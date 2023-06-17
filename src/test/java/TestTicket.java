@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -73,7 +74,7 @@ public class TestTicket {
     @Test
     @DisplayName("Test ticketZiehen(): Should set the entry time and change the ticket state to 'TicketGezogen'")
     public void testTicketZiehen() {
-        Date eintrittszeit = ticket.ticketZiehen();
+        LocalDateTime eintrittszeit = ticket.ticketZiehen();
         Assertions.assertNotNull(eintrittszeit);
         Assertions.assertTrue(ticket.getState() instanceof TicketGezogen);
     }
@@ -156,9 +157,9 @@ public class TestTicket {
     @Test
     @DisplayName("Test getEintrittszeit(): Should return the value of 'eintrittszeit'")
     public void testGetEintrittszeit() {
-        Date eintrittszeit = new Date();
+        LocalDateTime eintrittszeit = myLocalDate.myCurrentTime();
         ticket.eintrittszeit = eintrittszeit;
-        Date returnedEintrittszeit = ticket.getEintrittszeit();
+        LocalDateTime returnedEintrittszeit = ticket.getEintrittszeit();
         Assertions.assertEquals(eintrittszeit, returnedEintrittszeit);
     }
 
@@ -166,9 +167,9 @@ public class TestTicket {
     @Test
     @DisplayName("Test getBezahlzeit(): Should return the value of 'bezahlzeit'")
     public void testGetBezahlzeit() {
-        Date bezahlzeit = new Date();
+        LocalDateTime bezahlzeit = myLocalDate.myCurrentTime();
         ticket.bezahlzeit = bezahlzeit;
-        Date returnedBezahlzeit = ticket.getBezahlzeit();
+        LocalDateTime returnedBezahlzeit = ticket.getBezahlzeit();
         Assertions.assertEquals(bezahlzeit, returnedBezahlzeit);
     }
 
@@ -225,9 +226,9 @@ public class TestTicket {
     @Test
     @DisplayName("Test setAustrittszeit(): Should set the value of 'austrittszeit'")
     public void testSetAustrittszeit() {
-        Date austrittszeit = new Date();
+        LocalDateTime austrittszeit = myLocalDate.myCurrentTime();
         ticket.setAustrittszeit(austrittszeit);
-        Date returnedAustrittszeit = ticket.austrittszeit;
+        LocalDateTime returnedAustrittszeit = ticket.austrittszeit;
         Assertions.assertEquals(austrittszeit, returnedAustrittszeit);
     }
     @Test
