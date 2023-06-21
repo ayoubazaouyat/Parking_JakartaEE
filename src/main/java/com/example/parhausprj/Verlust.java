@@ -9,7 +9,7 @@ import java.io.PrintWriter;
 
 @WebServlet(name = "VerlustServlet", value = "/verlust-servlet")
 public class Verlust extends HttpServlet {
-    private String message = "Pay for your lost ticket";
+    private String message = "Get your lost ticket";
 
 
     public void init() {
@@ -28,9 +28,7 @@ public class Verlust extends HttpServlet {
         out.println("<form action=\"verlust-servlet\" method=\"post\">");
         out.println("<label for=\"autonummer\">Autonummer:</label>");
         out.println("<input type=\"text\" id=\"autonummer\" name=\"autonummer\" required>");
-        out.println("<label for=\"creditCardNumber\">Credit Card Number:</label>");
-        out.println("<input type=\"text\" id=\"creditCardNumber\" name=\"creditCardNumber\"><br><br>");
-        out.println("<input type=\"submit\" value=\"Pay My Ticket\">");
+        out.println("<input type=\"submit\" value=\"Find My Ticket\">");
         out.println("</form>");
         out.println("</div>");
         out.println("</body></html>");
@@ -47,7 +45,7 @@ public class Verlust extends HttpServlet {
         //  Ticket ticket = new Ticket(1234, "ABC-123", 10.0);
         for(Ticket i:TicketResponse.tickets){
 
-            if(i.getAutoNummer().equals(autonummer)) {
+            if(i.getAutoNummer().equals(autonummer) && !(i.isOut())) {
                 ticketnummer=i.getTicketNummer();
                 i.verloren();
                 out.println("<html><body>");

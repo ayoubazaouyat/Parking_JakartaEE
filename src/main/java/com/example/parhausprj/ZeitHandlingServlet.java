@@ -44,12 +44,12 @@ import javax.servlet.http.HttpServletResponse;
                 String timeString = request.getParameter("time");
                 if (timeString != null && !timeString.isEmpty()) {
                     LocalDateTime newTime = LocalDateTime.parse(timeString, DateTimeFormatter.ISO_LOCAL_DATE_TIME);
-                    if (newTime.isBefore(currentTime)) {
+                    if (newTime.isBefore(myLocalDate.myCurrentTime())) {
                         throw new ZeitverletzungsException("Raum-Zeit-Kontinuum verletzt");
                     }
-                    Duration duration = Duration.between(currentTime, newTime);
-                    additionalMinutes += duration.toMinutes();
-                    additionalSeconds += duration.minusMinutes(duration.toMinutes()).getSeconds();
+                    Duration duration = Duration.between(myLocalDate.myCurrentTime(), newTime);
+                    long timedif = duration.toMinutes();
+                    myLocalDate.timewarp(timedif);
                 }
             }
 

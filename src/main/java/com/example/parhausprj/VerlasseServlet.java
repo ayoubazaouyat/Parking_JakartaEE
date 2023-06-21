@@ -45,7 +45,7 @@ public class VerlasseServlet extends HttpServlet{
                         out.println("<html><body>");
                         out.println("<h1>Successful!</h1>");
                         out.println("<p>Ticket Number: " +ticketnummer+ "</p>");
-                        out.println("<p>Amount Charged: " + (i.getPrice()+i.getVerlustGeb()) + "<span>&#8364;</span> </p>");
+                        out.println("<p>Amount Charged: " + (i.getPrice()) + "<span>&#8364;</span> </p>");
                         out.println("</body></html>");
                     }
                     if ((i.getState() instanceof com.example.parhausprj.Nachzahlen)) {

@@ -1,8 +1,5 @@
 import com.example.parhausprj.*;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -243,5 +240,18 @@ public class TestTicket {
         Offnungzeitenservlet.Freeplaces = 0 ;
         Assertions.assertThrows(IllegalStateException.class, () ->ticket.ticketZiehen());
         Offnungzeitenservlet.Freeplaces = tmp;
+    }
+    @RepeatedTest(3)
+    @DisplayName("test timewrap accuracy.")
+    void ticketValidieren() {
+        ticket.ticketZiehen();
+        // Das Ticket nach einer Stunde validieren
+        myLocalDate.timewarp(60);
+        ticket.bezahlen();
+        double result = ticket.getPrice();
+        double expected = 10.0;
+        Assertions.assertEquals(result,expected);
+        myLocalDate.timewarp(-60);
+
     }
 }
