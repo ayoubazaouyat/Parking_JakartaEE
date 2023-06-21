@@ -47,7 +47,7 @@
         .column {
             flex: 50%;
             padding: 10px;
-            height: 740px;
+            height: 720px;
 
         }
 
@@ -63,11 +63,9 @@
             <label> Enter the new opening hours :</label>
             <input type="text" name="openingHours">
             <a href="index.jsp"><button type="submit" >Submit</button></a>
-        </form>
+        </form><br><br><br><br>
         <h2>Parking House Visualisation</h2>
         <a href="visualisation"><button type="submit"> Visualisation </button></a>
-        <h2>Total sales of Parkhaus 404</h2>
-        <a href="TotalSales-servlet"><button type="submit">Total Sales</button></a>
     </div>
     <div class="column" style="background-color:#FFF2CC;">
         <h2>Update the price of the Ticket:</h2>
@@ -75,8 +73,9 @@
             <label for="ticketPrice"> Enter the new price:</label>
             <input type="text" id="ticketPrice" name="ticketPrice">
             <a href="index.jsp"> <button type="submit"  >Submit</button></a>
-        </form>
-
+        </form><br><br><br><br>
+        <h2>Total sales of Parkhaus 404</h2>
+        <a href="TotalSales-servlet"><button type="submit">Total Sales</button></a>
     </div>
 </div>
  <div style="display: flex; justify-content: center;">
