@@ -28,6 +28,8 @@ public class TicketBezahlt extends State {
         if (duration > 0.5) {
             return new Nachzahlen();
         }else {
+            double price = Duration.between(t.getEintrittszeit(), t.getBezahlzeit()).toHours() + ((double)((Duration.between(t.getEintrittszeit(), t.getBezahlzeit()).toMinutes())%60.)/60.0);
+            t.setPrice(rounded(price*t.getTicketPrice()));
             t.setAustrittszeit(myLocalDate.myCurrentTime());
             Offnungzeitenservlet.Freeplaces++;
             Parkhauss.lots[t.place] = null ; // empty parking place
