@@ -6,25 +6,48 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color:#FFEBB3;
+            background-color: #F3F7F9;
             margin: 0;
             padding: 0;
         }
 
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            max-width: 400px;
+            background-color: #FFFFFF;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333333;
+            margin-bottom: 30px;
+        }
+
         form {
-            margin-bottom: 40px;
             text-align: center;
         }
 
         label {
             display: block;
             margin-bottom: 10px;
+            font-weight: bold;
+            color: #555555;
         }
 
-        input[type="text"], input[type="password"] {
-            padding: 5px;
+        input[type="text"],
+        input[type="password"] {
+            padding: 10px;
             font-size: 16px;
-            border: 1px solid #ccc;
+            border: 1px solid #CCCCCC;
             border-radius: 3px;
             width: 100%;
             max-width: 300px;
@@ -32,40 +55,54 @@
             margin-bottom: 10px;
         }
 
-        input[type="submit"] {
-            background-color: #333;
-            color: #fff;
-            padding: 5px;
-            border: none;
-            border-radius: 3px;
+        .password-toggle {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+            color: #555555;
+        }
+
+        .password-toggle input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        .password-toggle label {
             cursor: pointer;
         }
 
-        * {
-            box-sizing: border-box;
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: #FFFFFF;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-weight: bold;
         }
 
-        .row {
-            display: flex;
+        input[type="submit"]:hover {
+            background-color: #45a049;
         }
 
-        .column {
-            flex: 50%;
-            padding: 10px;
-            height: 740px;
-        }
-
-        
-
-        div.center {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+        .error-message {
+            color: #FF0000;
+            text-align: center;
+            margin-top: 10px;
         }
     </style>
-</head>
+    <script>
+        function togglePasswordVisibility() {
+            var passwordInput = document.getElementById("password");
+            var passwordToggle = document.getElementById("password-toggle");
 
+            if (passwordToggle.checked) {
+                passwordInput.type = "text";
+            } else {
+                passwordInput.type = "password";
+            }
+        }
+    </script>
+</head>
 
 <%
 
@@ -76,17 +113,22 @@
         response.sendRedirect("offzeit.jsp");
     } else if (username != null || password != null) {
         // Ansonsten wird eine Fehlermeldung angezeigt
-        out.println("<p>Invalid login credentials. Please try again.</p>");
+        out.println("<p class=\"error-message\">Invalid login credentials. Please try again.</p>");
     }
 %>
+
 <body>
 <div class="center">
-    <div>
+    <div class="login-container">
         <h1>Admin Login</h1>
         <form action="login.jsp" method="post">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required><br>
             <label for="password">Password:</label>
+            <div class="password-toggle">
+                <input type="checkbox" id="password-toggle" onclick="togglePasswordVisibility()">
+                <label for="password-toggle">Show Password</label>
+            </div>
             <input type="password" id="password" name="password" required><br>
             <input type="submit" value="Login">
         </form>
@@ -94,5 +136,3 @@
 </div>
 </body>
 </html>
-
-
