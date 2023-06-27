@@ -34,6 +34,10 @@
         <a href="TotalSales-servlet">Gesamtumsatz</a>
         <a href="index.jsp" style="background-color: #FF0000;">Zurück zur Startseite</a>
     </div>
+    <div class="form-wrapper">
+        <h2>Feedback anzeigen:</h2>
+        <a href="feedback-servlet"><button> Show feedbacks </button></a>
+    </div>
 </div>
 </body>
 </html>
