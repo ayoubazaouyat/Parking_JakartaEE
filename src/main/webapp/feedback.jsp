@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Feedback</title>
     <link rel="stylesheet" type="text/css" href="feedback.css">
