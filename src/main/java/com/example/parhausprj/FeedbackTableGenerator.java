@@ -26,6 +26,7 @@ public class FeedbackTableGenerator {
                 .append("<tr>")
                 .append("<th>Name</th>")
                 .append("<th>Email</th>")
+                .append("<th>Time</th>")
                 .append("<th>Nachricht</th>")
                 .append("</tr>");
 
