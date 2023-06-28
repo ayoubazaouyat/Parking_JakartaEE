@@ -13,17 +13,17 @@
     <label for="email">Email:</label>
     <input type="email" id="email" name="email" required><br><br>
 
-    <label for="subject">Betreff:</label>
+    <label for="subject">Subject:</label>
     <select id="subject" name="subject" required>
-        <option value="">Bitte wählen</option>
+        <option value="">Please choose</option>
         <option value="complaint">complaint</option>
         <option value="feedback">feedback</option>
     </select><br><br>
 
-    <label for="visit-time">Besuchszeit:</label>
+    <label for="visit-time">Visit time:</label>
     <input type="datetime-local" id="visit-time" name="visitTime" required><br><br>
 
-    <label for="message">Nachricht:</label><br>
+    <label for="message">Message:</label><br>
     <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
 
     <input type="submit" value="Senden">
