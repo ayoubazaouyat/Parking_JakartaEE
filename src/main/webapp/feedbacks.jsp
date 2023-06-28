@@ -21,7 +21,7 @@
 <body>
 <h2>Alle Feedbacks:</h2>
 
-<h3>Beschwerden:</h3>
+<h3>Complains:</h3>
 <%
   List<Feedback> feedbacks = (List<Feedback>) request.getAttribute("feedbackList");
   String complaintTable = FeedbackTableGenerator.generateComplaintTable(feedbacks);
