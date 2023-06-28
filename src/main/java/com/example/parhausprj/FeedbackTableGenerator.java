@@ -33,6 +33,7 @@ public class FeedbackTableGenerator {
                 .append("<tr>")
                 .append("<td>").append(feedback.getName()).append("</td>")
                 .append("<td>").append(feedback.getEmail()).append("</td>")
+                .append("<td>").append(feedback.getTime()).append("</td>")
                 .append("<td>").append(feedback.getMessage()).append("</td>")
                 .append("</tr>")
         );
