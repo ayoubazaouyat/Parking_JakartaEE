@@ -36,12 +36,12 @@ public class SpaceServlet extends HttpServlet {
         // Display the result to the user
         if (parkingSpace != null) {
             response.setContentType("text/html");
-            response.getWriter().println("Parkplatz nummer" + " " + (parkingSpace.getNumber() - 1) + " " + "ist für Sie reserviert");
+            response.getWriter().println("The Parking place number " + " " + (parkingSpace.getNumber() - 1) + " " + "is reserved for you");
             response.getWriter().println("<br><br><br>");
             response.getWriter().println("<a href=\"index.jsp\"><button type=\"button\">Back to Home</button></a>");
         } else {
             response.setContentType("text/html");
-            response.getWriter().println("Dieser Parkplatz ist schon reserviert");
+            response.getWriter().println("This Parking place is already reserved please choose another one");
             response.getWriter().println("<br><br><br>");
             response.getWriter().println("<a href=\"index.jsp\"><button type=\"button\">Back to Home</button></a>");
         }
