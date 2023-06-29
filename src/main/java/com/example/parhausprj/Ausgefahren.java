@@ -3,17 +3,17 @@ package com.example.parhausprj;
 public class Ausgefahren  extends State {
 
     @Override
-    public State bezahle(Ticket t) {
+    public State bezahle(Ticket t)throws IllegalStateException {
         throw new IllegalStateException("You already Paid!");
     }
 
     @Override
-    public State verliere(Ticket t) {
+    public State verliere(Ticket t)throws IllegalStateException {
         throw new IllegalStateException("You already Paid!");
     }
 
     @Override
-    public State verlasse(Ticket t) {
+    public State verlasse(Ticket t)throws IllegalStateException {
         throw new IllegalStateException("You are already out");
     }
 }
