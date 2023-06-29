@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 
 public class StatisticsTest {
     double expectedPaidAvg = (10. +15.) / 2.0;
-    double expectedPaidPercentage = (2.0 / 2.0) * 100.0;
+    double expectedPaidPercentage = 100.0;
     double expectedVerlustGAvg = (5.0 + 8.0) / 2.0;
     double expectedTimeAvg = (2.0) / 2.0;
     List<Ticket> tickets;
