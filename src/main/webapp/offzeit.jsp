@@ -9,33 +9,33 @@
 </head>
 <body>
 <div class="container">
-    <h1>Parkhaus Verwaltung</h1>
+    <h1>Parking administration</h1>
 
     <div class="form-wrapper">
-        <h2>Öffnungszeiten aktualisieren:</h2>
+        <h2>Update opening hours:</h2>
         <form method="post" action="zeit-servlet">
-            <label for="openingHours">Neue Öffnungszeiten eingeben:</label>
+            <label for="openingHours">Enter the new opening hours:</label>
             <input type="text" id="openingHours" name="openingHours">
-            <button type="submit">Absenden</button>
+            <button type="submit">Submit</button>
         </form>
     </div>
 
     <div class="form-wrapper">
         <h2>Update the ticket price:</h2>
         <form action="price-servlet" method="post">
-            <label for="ticketPrice">Enter new price:</label>
+            <label for="ticketPrice">Enter the new price:</label>
             <input type="text" id="ticketPrice" name="ticketPrice">
             <button type="submit">Submit</button>
         </form>
     </div>
 
     <div class="links-wrapper">
-        <a href="visualisation">Visualisierung</a>
-        <a href="TotalSales-servlet">Gesamtumsatz</a>
-        <a href="index.jsp" style="background-color: #FF0000;">Zurück zur Startseite</a>
+        <a href="visualisation">Visualization</a>
+        <a href="TotalSales-servlet">Total sales</a>
+        <a href="index.jsp" style="background-color: #FF0000;">Back to Home</a>
     </div>
     <div class="form-wrapper">
-        <h2>Feedback anzeigen:</h2>
+        <h2> Show Feedback:</h2>
         <a href="feedback-servlet"><button> Show feedbacks </button></a>
     </div>
 </div>
