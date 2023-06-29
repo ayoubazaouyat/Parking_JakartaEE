@@ -22,7 +22,7 @@
     <img src="https://www.bacancytechnology.com/main-boot-5/images/chatbot/side-img-1.gif" alt="Chatbot-Roboter" />
 </div>
  <div class="back-btn-container">
-            <a href="index.jsp"><button type="button">Back to Home</button></a>
+           <button onclick=\"window.location.href='index.jsp'\">Back to Home</button>
         </div>
 
 
