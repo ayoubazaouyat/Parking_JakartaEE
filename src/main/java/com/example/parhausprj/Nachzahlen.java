@@ -7,7 +7,7 @@ public class Nachzahlen  extends State {
 
     @Override
     public State verlasse(Ticket t) throws IllegalStateException {
-        throw new IllegalStateException("Sie müssen zuerst die zusätzlichen Gebühren bezahlen ");
+        throw new IllegalStateException("You need to pay the additional fees first ");
     }
 
     @Override
