@@ -21,11 +21,11 @@
     </div>
 
     <div class="form-wrapper">
-        <h2>Preis des Tickets aktualisieren:</h2>
+        <h2>Update the ticket price:</h2>
         <form action="price-servlet" method="post">
-            <label for="ticketPrice">Neuen Preis eingeben:</label>
+            <label for="ticketPrice">Enter new price:</label>
             <input type="text" id="ticketPrice" name="ticketPrice">
-            <button type="submit">Absenden</button>
+            <button type="submit">Submit</button>
         </form>
     </div>
 
