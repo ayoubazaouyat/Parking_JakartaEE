@@ -1,5 +1,7 @@
 package com.example.parhausprj;
 
+import java.time.Duration;
+
 public class TicketVerloren extends State {
     @Override
     public State bezahle(Ticket t) {
@@ -7,9 +9,18 @@ public class TicketVerloren extends State {
             double dauer = t.ticketValidieren();
             t.setPrice(rounded((t.getTicketPrice()*dauer)+t.getVerlustGeb()));
         } else {
-            t.setPrice(t.getPrice()+t.getVerlustGeb());
-        }
+            double duration = Duration.between(t.bezahlzeit,myLocalDate.myCurrentTime()).toHours()
+                    + (double)(Duration.between(t.bezahlzeit,myLocalDate.myCurrentTime()).toMinutes()%60)/60.0;
+            if (duration <= 0.5) {
+                t.setPrice(30.0);
 
+            } else{
+                t.setPrice(rounded((t.getTicketPrice()*duration)+t.getVerlustGeb()));
+
+            }
+
+        }
+        t.setBezahlzeit(myLocalDate.myCurrentTime());
         return new TicketBezahlt();
     }
 

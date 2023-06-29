@@ -19,6 +19,5 @@ public class TicketGezogen extends State {
     @Override
     public State verlasse(Ticket t) {
         throw new IllegalStateException("You need to pay for your ticket first!");
-
     }
 }

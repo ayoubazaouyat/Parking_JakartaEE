@@ -207,6 +207,12 @@ public class Ticket {
                 .filter(ticket -> ticket.getBezahlzeit() == null)
                 .collect(Collectors.toList());
     }
+    public static List<Ticket> getOutTickets() {
+        List<Ticket> tickets = getAllTickets();
+        return tickets.stream()
+                .filter(ticket -> ticket.austrittszeit != null)
+                .collect(Collectors.toList());
+    }
 
 
 }

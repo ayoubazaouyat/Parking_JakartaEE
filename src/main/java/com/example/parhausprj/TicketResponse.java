@@ -3,6 +3,7 @@ import com.example.parhausprj.Ticket;
 
 import java.io.*;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -37,11 +38,13 @@ public class TicketResponse extends HttpServlet{
             int place = chooseLot(tickets.get(ticketNumber - 1).getAutoNummer());
             Parkhauss.lots[place] = tickets.get(ticketNumber - 1).getAutoNummer();
             tickets.get(ticketNumber-1).setPlace(place);
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 
+            String formattedDateTime = date.format(formatter);
             out.println("<html><body>");
             out.println("<h1>" + "Thank you!" + "</h1>");
             out.println("<p> Ticket with Number " + tickets.get(ticketNumber - 1).getTicketNummer() +
-                    " has beem succesfully submitted at "+ date+ " with Registration number "+ tickets.get(ticketNumber-1).getAutoNummer()+
+                    " has beem succesfully submitted at "+ formattedDateTime + " with Registration number "+ tickets.get(ticketNumber-1).getAutoNummer()+
                     "lot number : "+ place +"</p>");
             out.println("</body></html>");
 
