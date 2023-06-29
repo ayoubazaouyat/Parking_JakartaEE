@@ -56,13 +56,13 @@ public class Offnungzeitenservlet extends HttpServlet {
 
         PrintWriter out = response.getWriter();
         out.println("<html><body>");
-        out.println("<h1><center>Herzlich Willkommen in unserem Parkhaus</center></h1>");
-        out.println("<h2><center>Öffnungszeiten: " + openingHours + "</center></h2>");
+        out.println("<h1><center>Welcome to our parking </center></h1>");
+        out.println("<h2><center>opening hours: " + openingHours + "</center></h2>");
 
         // Formular-Button hinzufügen
         out.println("<form method=\"post\" action=\"zeit-servlet\">");
-        out.println("<input type=\"text\" name=\"openingHours\" placeholder=\"Neue Öffnungszeiten\">");
-        out.println("<button type=\"submit\">Öffnungszeiten ändern</button>");
+        out.println("<input type=\"text\" name=\"openingHours\" placeholder=\"New opening hours\">");
+        out.println("<button type=\"submit\">Change opening hours</button>");
         out.println("</form>");
 
         out.println("</body></html>");

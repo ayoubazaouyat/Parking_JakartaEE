@@ -122,8 +122,8 @@ public class HelloServlet extends HttpServlet {
                 out.println("<center>"); 
                 out.println("<h1>Payment Successful</h1>");
                 out.println("<p>Ticket Number: " + ticketNumber + "</p>");
-                out.println("<p>Eintrittzeit: " + ticket.eintrittszeit + "</p>");
-                out.println("<p>Austrittzeit: " + ticket.bezahlzeit + "</p>");
+                out.println("<p>entry time: " + ticket.eintrittszeit + "</p>");
+                out.println("<p>exit time: " + ticket.bezahlzeit + "</p>");
                 out.println("<p>Amount Charged: " + price + "<span>&#8364;</span> </p>");
                 out.println("<button onclick=\"window.location.href='index.jsp'\">Back to Home</button>");
                 out.println("<button onclick=\"printReceipt()\">Print Receipt</button>"); 
