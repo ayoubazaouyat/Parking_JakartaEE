@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Chatbot</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -21,6 +21,10 @@
 <div id="chatbot-container">
     <img src="https://www.bacancytechnology.com/main-boot-5/images/chatbot/side-img-1.gif" alt="Chatbot-Roboter" />
 </div>
+ <div class="back-btn-container">
+            <a href="index.jsp"><button type="button">Back to Home</button></a>
+        </div>
+
 
 </body>
 </html>
