@@ -38,9 +38,6 @@ public class Parkplatz {
 
     public class ParkingSpace {
 
-
-
-
         private String autonummer;
         private int number;
         private boolean available;

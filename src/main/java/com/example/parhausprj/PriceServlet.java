@@ -16,14 +16,11 @@ public class PriceServlet extends HttpServlet  {
     public static double ticketPrice = 2.99 ;
 
     @Override
-    public void init()  {
+    public void init()  { }
 
-    }
-
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException,ServletException {
 
         response.setContentType("text/html");
-
         String ticketPriceParam = request.getParameter("ticketPrice");
         if (ticketPriceParam != null) {
             ticketPrice = Double.parseDouble(ticketPriceParam);
@@ -36,8 +33,6 @@ public class PriceServlet extends HttpServlet  {
 
         request.setAttribute("ticketPrice", ticketPrice);
         response.sendRedirect("index.jsp");
-
-        //doGet(request,response);
 
     }
 

@@ -12,7 +12,6 @@ import java.io.PrintWriter;
 public class SpaceServlet extends HttpServlet {
 
     public static Parkplatz parkplatz = new Parkplatz(200);
-    // private String message = "Reserve a Space";
 
     @Override
     public void init() throws ServletException {
