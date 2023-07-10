@@ -8,9 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.Duration;
-import java.util.ArrayList;
 import java.util.List;
-
 
 @WebServlet(name = "TotalSalesServlet", value = "/TotalSales-servlet")
 public class TotalSalesServlet extends HttpServlet {
@@ -121,11 +119,12 @@ public class TotalSalesServlet extends HttpServlet {
             sortedTickets = tickets;
         }
 
-        double totalTicketPrice = sortedTickets.stream()
-                .mapToDouble(Ticket::getPrice)
-                .sum();
+
 
         List<Ticket> lostTickets = Ticket.getTicketsByState();
+
+        double[] TotalTicketPrice = {0.0};
+
 
         sortedTickets.forEach(ticket -> {
             out.println("<tr>");
@@ -133,8 +132,11 @@ public class TotalSalesServlet extends HttpServlet {
             out.println("<td>" + ticket.getEintrittszeit() + "</td>");
 
             if (ticket.getBezahlzeit() != null && ticket.state instanceof com.example.parhausprj.Ausgefahren) {
-                out.println("<td>" + ticket.getBezahlzeit() + "</td>");
-                out.println("<td>" + ticket.getPrice() + "<span>&#8364;</span></td>");
+                out.println("<td>" + ticket.austrittszeit + "</td>");
+
+                double ticketPrice = ticket.getPrice() + ticket.getVerlustGeb() + ticket.getNachzahlung();
+                TotalTicketPrice[0] += ticketPrice;
+                out.println("<td>" + ticket.rounded(ticketPrice) + "<span>&#8364;</span></td>");
                 out.println("<td>Yes</td>");
             } else {
                 out.println("<td>-</td>");
@@ -150,13 +152,15 @@ public class TotalSalesServlet extends HttpServlet {
         out.println("</table>");
 
         out.println("<div class=\"center\">");
-        out.println("<h2>Total Sales: " + String.format("%.2f", totalTicketPrice) + "<span>&#8364;</span></h2>");
+        out.println("<h2>Total Sales: " + String.format("%.2f", TotalTicketPrice[0]) + "<span>&#8364;</span></h2>");
+        out.println("</div>");
 
         double paidAvg = Ticket.getOutTickets().stream().mapToDouble(Ticket::getPrice).average().orElse(0.0);
         double paidPercentage = (double) Ticket.getOutTickets().size() / tickets.size() * 100.0;
         double verlustGAvg = Ticket.getOutTickets().stream().mapToDouble(Ticket::getVerlustGeb).average().orElse(0.0);
-        double timeAvg = Ticket.getOutTickets().stream().mapToDouble( x ->
-            Duration.between(x.eintrittszeit,x.getBezahlzeit()).toHours()+ (double)(Duration.between(x.getEintrittszeit(),x.getBezahlzeit()).toMinutes()%60)/60.0
+        double timeAvg = Ticket.getOutTickets().stream().mapToDouble(x ->
+                Duration.between(x.getEintrittszeit(), x.getBezahlzeit()).toHours()
+                        + (double) (Duration.between(x.getEintrittszeit(), x.getBezahlzeit()).toMinutes() % 60) / 60.0
         ).average().orElse(0.0);
 
         out.println("<html><head><title>Statistical Data Visualization</title>");
@@ -198,33 +202,31 @@ public class TotalSalesServlet extends HttpServlet {
         out.println("<h1>Statistical Data Visualization</h1>");
         out.println("<div class=\"container\">");
 
-// Paid Percentage
+        // Paid Percentage
         out.println("<div class=\"chart-container\">");
         out.println("<h2>Paid Percentage</h2>");
         out.println("<canvas id=\"chart\"></canvas>");
         out.println("</div>");
 
-// Average Price
+        // Average Price
         out.println("<div class=\"statistic-container\">");
         out.println("<h2>Average Price</h2>");
         out.println("<p>" + String.format("%.2f", paidAvg) + "&#8364;</p>");
         out.println("</div>");
 
-// Average Lost Fees
+        // Average Lost Fees
         out.println("<div class=\"statistic-container\">");
         out.println("<h2>Average Lost Fees</h2>");
         out.println("<p>" + String.format("%.2f", verlustGAvg) + "&#8364;</p>");
         out.println("</div>");
 
-// Average Time Spent
+        // Average Time Spent
         out.println("<div class=\"statistic-container\">");
         out.println("<h2>Average Time Spent</h2>");
         out.println("<p>" + String.format("%.2f", timeAvg) + "h</p>");
         out.println("</div>");
 
         out.println("</div></body></html>");
-
-
 
         out.println("<button onclick=\"window.location.href='index.jsp'\">Back to Home</button>");
         out.println("</div>");
