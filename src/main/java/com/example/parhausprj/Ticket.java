@@ -179,13 +179,15 @@ public class Ticket {
     public static double getTotalSales() {
         return totalSales;
     }
-     public static List<Ticket> getSortedTicketsByPriceDescending() {
+ public static List<Ticket> getSortedTicketsByPriceDescending() {
         List<Ticket> tickets = getAllTickets();
         return tickets.stream()
                 .filter(ticket -> ticket.getBezahlzeit() != null)
-                .sorted((ticket1, ticket2) -> Double.compare(ticket2.getPrice(), ticket1.getPrice()))
+                .sorted((ticket1, ticket2) -> Double.compare(
+                        ticket2.getPrice() + ticket2.getVerlustGeb() + ticket2.getNachzahlung(),
+                        ticket1.getPrice() + ticket1.getVerlustGeb() + ticket1.getNachzahlung()
+                ))
                 .collect(Collectors.toList());
-
     }
 
     public static List<Ticket> getTicketsByState() {
