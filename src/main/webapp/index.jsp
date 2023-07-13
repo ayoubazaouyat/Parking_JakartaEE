@@ -1,6 +1,9 @@
 <%@ page import="com.example.parhausprj.Offnungzeitenservlet" %>
 <%@ page import="com.example.parhausprj.PriceServlet" %>
+<%@ page import="com.example.parhausprj.myLocalDate" %>
 <%@ page import="java.io.PrintWriter" %>
+<%@ page import="java.time.LocalTime" %>
+<%@ page import="java.time.LocalDateTime" %>
 
 
 <!DOCTYPE html>
@@ -109,6 +112,7 @@
  
     <div style="text-align:center;">
     <h1>Welcome To Parkhauss 404</h1>
+    <div>${myLoca}</div>
     <h1 class="uhr-btn" id="clock"></h1>
     <h3>Opening Hours:  ${Offnungzeitenservlet.openingHours}</h3>
     <h4 class="green"> Free Places : ${Offnungzeitenservlet.Freeplaces}</h4>
