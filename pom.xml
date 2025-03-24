@@ -6,7 +6,7 @@
     <version>1.0-SNAPSHOT</version>
     <name>Team_12_sose23</name>
     <properties>
-        <jetty.plugin.version>9.3.9.v20160517</jetty.plugin.version>
+        <jetty.plugin.version>9.4.52.v20230823</jetty.plugin.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
